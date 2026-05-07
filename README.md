@@ -11,6 +11,9 @@
 
 Clipy is a Clipboard extension app for macOS.
 
+> The Clipiero project is about maintenance and security update of Clipy.
+> There won't be any new features. See [MODERN.md](MODERN.md).
+
 ---
 
 __Requirement__: macOS 10.10 Yosemite or higher
