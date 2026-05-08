@@ -7,8 +7,8 @@ Patch in small pieces. Broad PRs that mix runtime fixes, dependency changes, and
 What to watch:
 
 - Pasteboard: store AppKit's modern pasteboard types and keep only a small read path for old archived legacy types.
-- macOS support: the supported floor is Apple Silicon on macOS 13 Ventura. Future support changes should update README, Podfile, CI, and Xcode settings together.
-- Build tooling: refresh Bundler, CocoaPods, and generated Pods as one reproducible setup.
+- macOS support: the supported floor is Apple Silicon on macOS 13 Ventura. Future support changes should update README, CI, and Xcode settings together.
+- Build tooling: use Swift Package Manager for app and test dependencies; keep generated sources reproducible.
 - Tests: keep Quick/Nimble wired, or migrate the test suite completely.
 - Login items: use `SMAppService.mainApp` and preserve existing preferences as the source of truth for whether launch-at-login is enabled.
 - Updates: keep Sparkle preferences visible unless Sparkle is intentionally removed or replaced.

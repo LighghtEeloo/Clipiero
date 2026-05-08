@@ -17,9 +17,7 @@ import RxCocoa
 import RxSwift
 import Magnet
 import Screeen
-import RxScreeen
 import RealmSwift
-import LetsMove
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSMenuItemValidation {
@@ -196,6 +194,7 @@ extension AppDelegate: NSApplicationDelegate {
         updater?.automaticallyChecksForUpdates = AppEnvironment.current.defaults.bool(forKey: Constants.Update.enableAutomaticCheck)
         updater?.updateCheckInterval = TimeInterval(AppEnvironment.current.defaults.integer(forKey: Constants.Update.checkInterval))
 
+        screenshotObserver.delegate = self
         // Binding Events
         bind()
 
@@ -207,12 +206,6 @@ extension AppDelegate: NSApplicationDelegate {
 
         // Managers
         AppEnvironment.current.menuManager.setup()
-    }
-
-    func applicationWillFinishLaunching(_ notification: Notification) {
-        #if RELEASE
-            PFMoveToApplicationsFolderIfNecessary()
-        #endif
     }
 
 }
@@ -243,11 +236,14 @@ private extension AppDelegate {
                 self?.screenshotObserver.start()
             })
             .disposed(by: disposeBag)
-        // Observe Screenshot image
-        screenshotObserver.rx.addedImage
-            .subscribe(onNext: { image in
-                AppEnvironment.current.clipService.create(with: image)
-            })
-            .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - ScreenShotObserver Delegate
+extension AppDelegate: ScreenShotObserverDelegate {
+    func screenShotObserver(_ observer: ScreenShotObserver, addedItem item: NSMetadataItem) {
+        guard let imagePath = item.value(forAttribute: "kMDItemPath") as? String else { return }
+        guard let image = NSImage(contentsOfFile: imagePath) else { return }
+        AppEnvironment.current.clipService.create(with: image)
     }
 }

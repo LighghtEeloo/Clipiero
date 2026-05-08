@@ -30,9 +30,11 @@ __Distribution Site__ : <https://clipy-app.com>
 
 ### How to Build
 0. Move to the project root directory
-1. `bundle install --path=vendor/bundle && bundle exec pod install`
-2. Open `Clipy.xcworkspace` on Xcode.
+1. Open `Clipy.xcodeproj` in Xcode.
+2. Let Xcode resolve Swift Package Manager dependencies.
 3. build.
+
+SwiftLint, SwiftGen, and BartyCrouch are optional local command-line tools. If they are not installed, Xcode will skip those build phases and use the checked-in generated sources.
 
 ### Contributing
 1. Fork it ( https://github.com/Clipy/Clipy/fork )

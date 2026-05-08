@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		242EC2327861D35B7C3AE84E /* Pods_ClipyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A4B450122D7FCE6BD57E77 /* Pods_ClipyTests.framework */; };
-		B7CC520B88EAA6AD38E93462 /* Pods_Clipy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A92F6DEE6CFF50A567CFEF /* Pods_Clipy.framework */; };
 		C50D00021FF0000000000002 /* ClipDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00011FF0000000000001 /* ClipDataSpec.swift */; };
+		C5A003000000000000000001 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000001 /* AEXML */; };
+		C5A003000000000000000002 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000002 /* KeyHolder */; };
+		C5A003000000000000000003 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000003 /* Magnet */; };
+		C5A003000000000000000004 /* PINCache in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000004 /* PINCache */; };
+		C5A003000000000000000005 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000005 /* RealmSwift */; };
+		C5A003000000000000000006 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000006 /* RxCocoa */; };
+		C5A003000000000000000007 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000007 /* RxSwift */; };
+		C5A003000000000000000008 /* Sauce in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000008 /* Sauce */; };
+		C5A003000000000000000009 /* Screeen in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000009 /* Screeen */; };
+		C5A00300000000000000000A /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = C5A00200000000000000000A /* Sparkle */; };
+		C5A00300000000000000000B /* SwiftHEXColors in Frameworks */ = {isa = PBXBuildFile; productRef = C5A00200000000000000000B /* SwiftHEXColors */; };
+		C5A00300000000000000000C /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = C5A00200000000000000000C /* Quick */; };
+		C5A00300000000000000000D /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C5A00200000000000000000D /* Nimble */; };
+		C5A00300000000000000000E /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000003 /* Magnet */; };
+		C5A00300000000000000000F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000005 /* RealmSwift */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Clipy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Clipy.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
@@ -108,9 +121,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00A4B450122D7FCE6BD57E77 /* Pods_ClipyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C2D23FF23B07B76585DC610 /* Pods-ClipyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipyTests/Pods-ClipyTests.release.xcconfig"; sourceTree = "<group>"; };
-		31064F137CFB046737D1709D /* Pods-Clipy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Clipy/Pods-Clipy.debug.xcconfig"; sourceTree = "<group>"; };
 		314B299D1EC49AD5004DD070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPYSnippetsEditorWindowController.xib; sourceTree = "<group>"; };
 		314B299E1EC49AEF004DD070 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/CPYSnippetsEditorWindowController.strings; sourceTree = "<group>"; };
 		314B299F1EC49BAF004DD070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CPYPreferencesWindowController.xib; sourceTree = "<group>"; };
@@ -135,7 +145,6 @@
 		54ADE1012008F64100239852 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CPYUpdatesPreferenceViewController.strings"; sourceTree = "<group>"; };
 		54ADE1022008F64100239852 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CPYSnippetsEditorWindowController.strings"; sourceTree = "<group>"; };
 		54ADE1032008F64100239852 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		73A92F6DEE6CFF50A567CFEF /* Pods_Clipy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clipy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846004961FD5511800BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CPYPreferencesWindowController.strings; sourceTree = "<group>"; };
 		846004971FD5511900BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CPYBetaPreferenceViewController.strings; sourceTree = "<group>"; };
 		846004981FD5511900BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CPYExcludeAppPreferenceViewController.strings; sourceTree = "<group>"; };
@@ -146,8 +155,6 @@
 		8460049D1FD5511A00BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CPYUpdatesPreferenceViewController.strings; sourceTree = "<group>"; };
 		8460049E1FD5511A00BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CPYSnippetsEditorWindowController.strings; sourceTree = "<group>"; };
 		8460049F1FD5511A00BA733E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		994536AAB91CE22186C3CFB1 /* Pods-ClipyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClipyTests/Pods-ClipyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9DBBF976436A0651CB8BD4B2 /* Pods-Clipy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clipy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clipy/Pods-Clipy.release.xcconfig"; sourceTree = "<group>"; };
 		C50D00011FF0000000000001 /* ClipDataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipDataSpec.swift; sourceTree = "<group>"; };
 		C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Clipy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Clipy.swift"; sourceTree = "<group>"; };
 		FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyServiceSpec.swift; sourceTree = "<group>"; };
@@ -243,7 +250,17 @@
 				FAC13A0A2C00000000000002 /* ServiceManagement.framework in Frameworks */,
 				FAC43E251B35DFD000C06102 /* AppKit.framework in Frameworks */,
 				FAC43E231B35DFC800C06102 /* Foundation.framework in Frameworks */,
-				B7CC520B88EAA6AD38E93462 /* Pods_Clipy.framework in Frameworks */,
+				C5A003000000000000000001 /* AEXML in Frameworks */,
+				C5A003000000000000000002 /* KeyHolder in Frameworks */,
+				C5A003000000000000000003 /* Magnet in Frameworks */,
+				C5A003000000000000000004 /* PINCache in Frameworks */,
+				C5A003000000000000000005 /* RealmSwift in Frameworks */,
+				C5A003000000000000000006 /* RxCocoa in Frameworks */,
+				C5A003000000000000000007 /* RxSwift in Frameworks */,
+				C5A003000000000000000008 /* Sauce in Frameworks */,
+				C5A003000000000000000009 /* Screeen in Frameworks */,
+				C5A00300000000000000000A /* Sparkle in Frameworks */,
+				C5A00300000000000000000B /* SwiftHEXColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +268,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242EC2327861D35B7C3AE84E /* Pods_ClipyTests.framework in Frameworks */,
+				C5A00300000000000000000C /* Quick in Frameworks */,
+				C5A00300000000000000000D /* Nimble in Frameworks */,
+				C5A00300000000000000000E /* Magnet in Frameworks */,
+				C5A00300000000000000000F /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,21 +287,8 @@
 				FAC13A0A1C00000000000001 /* ServiceManagement.framework */,
 				FAC43E241B35DFD000C06102 /* AppKit.framework */,
 				FAC43E221B35DFC800C06102 /* Foundation.framework */,
-				73A92F6DEE6CFF50A567CFEF /* Pods_Clipy.framework */,
-				00A4B450122D7FCE6BD57E77 /* Pods_ClipyTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D308B3D847EEAF20B17182CE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				31064F137CFB046737D1709D /* Pods-Clipy.debug.xcconfig */,
-				9DBBF976436A0651CB8BD4B2 /* Pods-Clipy.release.xcconfig */,
-				994536AAB91CE22186C3CFB1 /* Pods-ClipyTests.debug.xcconfig */,
-				1C2D23FF23B07B76585DC610 /* Pods-ClipyTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		FA06D2D21DD882BD002FB7C2 /* Resources */ = {
@@ -508,7 +515,6 @@
 				FAC43DDB1B35D8B100C06102 /* ClipyTests */,
 				FAC43DC71B35D8B100C06102 /* Products */,
 				2CB0F71AAC48A392535FD3B0 /* Frameworks */,
-				D308B3D847EEAF20B17182CE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -561,13 +567,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC43DE21B35D8B100C06102 /* Build configuration list for PBXNativeTarget "Clipy" */;
 			buildPhases = (
-				8E8162F076D1C3115EAAB644 /* [CP] Check Pods Manifest.lock */,
 				FAC43DC21B35D8B100C06102 /* Sources */,
 				FAC43DC31B35D8B100C06102 /* Frameworks */,
 				FAC43DC41B35D8B100C06102 /* Resources */,
 				FAC43E1D1B35DF4A00C06102 /* Embed Frameworks */,
 				FAAD02201CA98E20007C6EEE /* SwiftLint */,
-				07B47785AE0AC2185B570C28 /* [CP] Embed Pods Frameworks */,
 				FAAA88991E686CED0088FB34 /* BartyCrouch */,
 				FA10897F20EC24F700A3FEFC /* SwiftGen */,
 			);
@@ -576,6 +580,19 @@
 			dependencies = (
 			);
 			name = Clipy;
+			packageProductDependencies = (
+				C5A002000000000000000001 /* AEXML */,
+				C5A002000000000000000002 /* KeyHolder */,
+				C5A002000000000000000003 /* Magnet */,
+				C5A002000000000000000004 /* PINCache */,
+				C5A002000000000000000005 /* RealmSwift */,
+				C5A002000000000000000006 /* RxCocoa */,
+				C5A002000000000000000007 /* RxSwift */,
+				C5A002000000000000000008 /* Sauce */,
+				C5A002000000000000000009 /* Screeen */,
+				C5A00200000000000000000A /* Sparkle */,
+				C5A00200000000000000000B /* SwiftHEXColors */,
+			);
 			productName = Clipy;
 			productReference = FAC43DC61B35D8B100C06102 /* Clipy.app */;
 			productType = "com.apple.product-type.application";
@@ -584,11 +601,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAC43DE51B35D8B100C06102 /* Build configuration list for PBXNativeTarget "ClipyTests" */;
 			buildPhases = (
-				7BFBD366B210014B03083E71 /* [CP] Check Pods Manifest.lock */,
 				FAC43DD41B35D8B100C06102 /* Sources */,
 				FAC43DD51B35D8B100C06102 /* Frameworks */,
 				FAC43DD61B35D8B100C06102 /* Resources */,
-				321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -596,6 +611,12 @@
 				FAC43DDA1B35D8B100C06102 /* PBXTargetDependency */,
 			);
 			name = ClipyTests;
+			packageProductDependencies = (
+				C5A00200000000000000000C /* Quick */,
+				C5A00200000000000000000D /* Nimble */,
+				C5A002000000000000000003 /* Magnet */,
+				C5A002000000000000000005 /* RealmSwift */,
+			);
 			productName = ClipyTests;
 			productReference = FAC43DD81B35D8B100C06102 /* ClipyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -638,6 +659,20 @@
 				"zh-Hans",
 			);
 			mainGroup = FAC43DBD1B35D8B100C06102;
+			packageReferences = (
+				C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */,
+				C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */,
+				C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */,
+				C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */,
+				C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */,
+				C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */,
+				C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */,
+				C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */,
+				C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = FAC43DC71B35D8B100C06102 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -681,110 +716,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07B47785AE0AC2185B570C28 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
-				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
-				"${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework",
-				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
-				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
-				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxScreeen/RxScreeen.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Sauce/Sauce.framework",
-				"${BUILT_PRODUCTS_DIR}/Screeen/Screeen.framework",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftHEXColors/SwiftHEXColors.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LetsMove.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxScreeen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sauce.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Screeen.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHEXColors.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clipy/Pods-Clipy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		321A1AC02A519AFA3A4D43D2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ClipyTests/Pods-ClipyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7BFBD366B210014B03083E71 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ClipyTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E8162F076D1C3115EAAB644 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Clipy-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FA10897F20EC24F700A3FEFC /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -797,7 +728,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\"";
+			shellScript = "if command -v swiftgen >/dev/null; then\n    swiftgen\nelse\n    echo \"warning: SwiftGen not installed; generated sources may be stale.\"\nfi\n";
 		};
 		FAAA88991E686CED0088FB34 /* BartyCrouch */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -811,7 +742,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/BartyCrouch/bartycrouch\" interfaces -p \"$PROJECT_DIR\"";
+			shellScript = "if command -v bartycrouch >/dev/null; then\n    bartycrouch interfaces -p \"$PROJECT_DIR\"\nelse\n    echo \"warning: BartyCrouch not installed; localized interface strings may be stale.\"\nfi\n";
 		};
 		FAAD02201CA98E20007C6EEE /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -825,7 +756,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "if command -v swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed; skipping lint.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1029,6 +960,85 @@
 		};
 /* End PBXVariantGroup section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML.git";
+			requirement = {kind = exactVersion; version = 4.7.0; };
+		};
+		C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder.git";
+			requirement = {kind = exactVersion; version = 4.2.0; };
+		};
+		C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet.git";
+			requirement = {kind = exactVersion; version = 3.4.0; };
+		};
+		C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pinterest/PINCache.git";
+			requirement = {kind = exactVersion; version = 3.0.4; };
+		};
+		C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {kind = exactVersion; version = 10.54.6; };
+		};
+		C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {kind = exactVersion; version = 6.9.0; };
+		};
+		C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce.git";
+			requirement = {kind = exactVersion; version = 2.4.1; };
+		};
+		C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Screeen.git";
+			requirement = {kind = exactVersion; version = 2.1.0; };
+		};
+		C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
+			requirement = {kind = exactVersion; version = 2.9.1; };
+		};
+		C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
+			requirement = {kind = exactVersion; version = 1.4.1; };
+		};
+		C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {kind = exactVersion; version = 7.6.2; };
+		};
+		C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {kind = exactVersion; version = 13.8.0; };
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5A002000000000000000001 /* AEXML */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */; productName = AEXML; };
+		C5A002000000000000000002 /* KeyHolder */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */; productName = KeyHolder; };
+		C5A002000000000000000003 /* Magnet */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */; productName = Magnet; };
+		C5A002000000000000000004 /* PINCache */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */; productName = PINCache; };
+		C5A002000000000000000005 /* RealmSwift */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */; productName = RealmSwift; };
+		C5A002000000000000000006 /* RxCocoa */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */; productName = RxCocoa; };
+		C5A002000000000000000007 /* RxSwift */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */; productName = RxSwift; };
+		C5A002000000000000000008 /* Sauce */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */; productName = Sauce; };
+		C5A002000000000000000009 /* Screeen */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */; productName = Screeen; };
+		C5A00200000000000000000A /* Sparkle */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */; productName = Sparkle; };
+		C5A00200000000000000000B /* SwiftHEXColors */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */; productName = SwiftHEXColors; };
+		C5A00200000000000000000C /* Quick */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */; productName = Quick; };
+		C5A00200000000000000000D /* Nimble */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */; productName = Nimble; };
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin XCBuildConfiguration section */
 		FAC43DE01B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1140,7 +1150,6 @@
 		};
 		FAC43DE31B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31064F137CFB046737D1709D /* Pods-Clipy.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ARCHS = arm64;
@@ -1168,7 +1177,6 @@
 		};
 		FAC43DE41B35D8B100C06102 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DBBF976436A0651CB8BD4B2 /* Pods-Clipy.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ARCHS = arm64;
@@ -1197,7 +1205,6 @@
 		};
 		FAC43DE61B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 994536AAB91CE22186C3CFB1 /* Pods-ClipyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1222,7 +1229,6 @@
 		};
 		FAC43DE71B35D8B100C06102 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C2D23FF23B07B76585DC610 /* Pods-ClipyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
