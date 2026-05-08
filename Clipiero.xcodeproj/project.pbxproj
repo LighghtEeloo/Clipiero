@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C50D00021FF0000000000002 /* ClipDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00011FF0000000000001 /* ClipDataSpec.swift */; };
+		C50D00101FF0000000000010 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D000F1FF000000000000F /* UpdateService.swift */; };
 		C5A003000000000000000001 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000001 /* AEXML */; };
 		C5A003000000000000000002 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000002 /* KeyHolder */; };
 		C5A003000000000000000003 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000003 /* Magnet */; };
@@ -24,7 +25,6 @@
 		C5A00300000000000000000E /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000003 /* Magnet */; };
 		C5A00300000000000000000F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000005 /* RealmSwift */; };
 		C5F1B7331FF74A2D00D2DA83 /* NSPasteboard+Clipiero.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Clipiero.swift */; };
-		C50D00101FF0000000000010 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D000F1FF000000000000F /* UpdateService.swift */; };
 		FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */; };
 		FA0D5CE81DDCC61600AC9052 /* ClipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D5CE71DDCC61600AC9052 /* ClipService.swift */; };
 		FA10897D20EC22E200A3FEFC /* AssetsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10897B20EC22E200A3FEFC /* AssetsImages.swift */; };
@@ -81,8 +81,8 @@
 		FA6167921D3ABEB10049FA14 /* FolderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6167911D3ABEB10049FA14 /* FolderSpec.swift */; };
 		FA6167941D3ACCB90049FA14 /* DraggedDataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6167931D3ACCB90049FA14 /* DraggedDataSpec.swift */; };
 		FA6167961D3ACDD80049FA14 /* SnippetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6167951D3ACDD80049FA14 /* SnippetSpec.swift */; };
-		FA6DD5141C7DEDB600317E73 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		FA6DD5151C7DEDB600317E73 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		FA6DD5141C7DEDB600317E73 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		FA6DD5151C7DEDB600317E73 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		FAA4BCCC2163DC9100FF5D18 /* AccessibilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4BCCB2163DC9100FF5D18 /* AccessibilityService.swift */; };
 		FAC0DCE91DE15FD900309C49 /* DataCleanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0DCE81DE15FD900309C49 /* DataCleanService.swift */; };
 		FAC0DCEF1DE3255E00309C49 /* NSImage+NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0DCEE1DE3255E00309C49 /* NSImage+NSColor.swift */; };
@@ -627,9 +627,10 @@
 		FAC43DBE1B35D8B100C06102 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				CLASSPREFIX = CPY;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 2640;
 				ORGANIZATIONNAME = "Clipiero Project";
 				TargetAttributes = {
 					FAC43DC51B35D8B100C06102 = {
@@ -689,7 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1DB5131DDCB4C0007F95C8 /* CPYPreferencesWindowController.xib in Resources */,
-				FA6DD5141C7DEDB600317E73 /* BuildFile in Resources */,
+				FA6DD5141C7DEDB600317E73 /* (null) in Resources */,
 				FA1DB51E1DDCB4C0007F95C8 /* CPYTypePreferenceViewController.xib in Resources */,
 				FA1DB4901DDCA5D9007F95C8 /* Images.xcassets in Resources */,
 				FA1DB51D1DDCB4C0007F95C8 /* CPYShortcutsPreferenceViewController.xib in Resources */,
@@ -698,7 +699,7 @@
 				FA1DB51B1DDCB4C0007F95C8 /* CPYGeneralPreferenceViewController.xib in Resources */,
 				FA1DB51A1DDCB4C0007F95C8 /* CPYExcludeAppPreferenceViewController.xib in Resources */,
 				FA1DB5191DDCB4C0007F95C8 /* CPYBetaPreferenceViewController.xib in Resources */,
-				FA6DD5151C7DEDB600317E73 /* BuildFile in Resources */,
+				FA6DD5151C7DEDB600317E73 /* (null) in Resources */,
 				FA1DB4981DDCB2CB007F95C8 /* Localizable.strings in Resources */,
 				FA1DB49F1DDCB417007F95C8 /* MainMenu.xib in Resources */,
 				FA1DB5221DDCB4C0007F95C8 /* CPYSnippetsEditorWindowController.xib in Resources */,
@@ -963,90 +964,12 @@
 		};
 /* End PBXVariantGroup section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tadija/AEXML.git";
-			requirement = {kind = exactVersion; version = 4.7.0; };
-		};
-		C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Clipy/KeyHolder.git";
-			requirement = {kind = exactVersion; version = 4.2.0; };
-		};
-		C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Clipy/Magnet.git";
-			requirement = {kind = exactVersion; version = 3.4.0; };
-		};
-		C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pinterest/PINCache.git";
-			requirement = {kind = exactVersion; version = 3.0.4; };
-		};
-		C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {kind = exactVersion; version = 20.0.4; };
-		};
-		C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {kind = exactVersion; version = 6.9.0; };
-		};
-		C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Clipy/Sauce.git";
-			requirement = {kind = exactVersion; version = 2.4.1; };
-		};
-		C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Clipy/Screeen.git";
-			requirement = {kind = exactVersion; version = 2.1.0; };
-		};
-		C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
-			requirement = {kind = exactVersion; version = 2.9.1; };
-		};
-		C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
-			requirement = {kind = exactVersion; version = 1.4.1; };
-		};
-		C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick.git";
-			requirement = {kind = exactVersion; version = 7.6.2; };
-		};
-		C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble.git";
-			requirement = {kind = exactVersion; version = 13.8.0; };
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C5A002000000000000000001 /* AEXML */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */; productName = AEXML; };
-		C5A002000000000000000002 /* KeyHolder */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */; productName = KeyHolder; };
-		C5A002000000000000000003 /* Magnet */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */; productName = Magnet; };
-		C5A002000000000000000004 /* PINCache */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */; productName = PINCache; };
-		C5A002000000000000000005 /* RealmSwift */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */; productName = RealmSwift; };
-		C5A002000000000000000006 /* RxCocoa */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */; productName = RxCocoa; };
-		C5A002000000000000000007 /* RxSwift */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */; productName = RxSwift; };
-		C5A002000000000000000008 /* Sauce */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */; productName = Sauce; };
-		C5A002000000000000000009 /* Screeen */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */; productName = Screeen; };
-		C5A00200000000000000000A /* Sparkle */ = {isa = XCSwiftPackageProductDependency; package = C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */; productName = Sparkle; };
-		C5A00200000000000000000B /* SwiftHEXColors */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */; productName = SwiftHEXColors; };
-		C5A00200000000000000000C /* Quick */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */; productName = Quick; };
-		C5A00200000000000000000D /* Nimble */ = {isa = XCSwiftPackageProductDependency; package = C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */; productName = Nimble; };
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCBuildConfiguration section */
 		FAC43DE01B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1066,6 +989,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1073,9 +997,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1084,7 +1010,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				ARCHS = arm64;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1097,6 +1022,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1105,7 +1031,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1125,6 +1051,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1132,9 +1059,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1147,28 +1076,32 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_SWIFT_FLAGS = "-D RELEASE";
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
 		FAC43DE31B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipiero/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clipiero.Clipiero.debug";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clipiero.Clipiero.debug;
 				PRODUCT_MODULE_NAME = Clipiero;
 				PRODUCT_NAME = Clipiero;
 				PROVISIONING_PROFILE = "";
@@ -1182,22 +1115,24 @@
 		FAC43DE41B35D8B100C06102 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Clipiero/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clipiero.Clipiero";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clipiero.Clipiero;
 				PRODUCT_MODULE_NAME = Clipiero;
 				PRODUCT_NAME = Clipiero;
 				PROVISIONING_PROFILE = "";
@@ -1211,9 +1146,9 @@
 		FAC43DE61B35D8B100C06102 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -1223,7 +1158,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ClipieroTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipiero.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1236,15 +1175,19 @@
 		FAC43DE71B35D8B100C06102 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ClipieroTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clipiero.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1285,6 +1228,173 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.7.0;
+			};
+		};
+		C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/KeyHolder.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.2.0;
+			};
+		};
+		C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Magnet.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.4.0;
+			};
+		};
+		C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pinterest/PINCache.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.4;
+			};
+		};
+		C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 20.0.4;
+			};
+		};
+		C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.9.0;
+			};
+		};
+		C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Sauce.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.4.1;
+			};
+		};
+		C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Clipy/Screeen.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.0;
+			};
+		};
+		C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.9.1;
+			};
+		};
+		C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thii/SwiftHEXColors.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.4.1;
+			};
+		};
+		C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
+		C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = exactVersion;
+				version = 13.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C5A002000000000000000001 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000001 /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
+		};
+		C5A002000000000000000002 /* KeyHolder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000002 /* XCRemoteSwiftPackageReference "KeyHolder" */;
+			productName = KeyHolder;
+		};
+		C5A002000000000000000003 /* Magnet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000003 /* XCRemoteSwiftPackageReference "Magnet" */;
+			productName = Magnet;
+		};
+		C5A002000000000000000004 /* PINCache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000004 /* XCRemoteSwiftPackageReference "PINCache" */;
+			productName = PINCache;
+		};
+		C5A002000000000000000005 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000005 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		C5A002000000000000000006 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C5A002000000000000000007 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000006 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		C5A002000000000000000008 /* Sauce */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000007 /* XCRemoteSwiftPackageReference "Sauce" */;
+			productName = Sauce;
+		};
+		C5A002000000000000000009 /* Screeen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000008 /* XCRemoteSwiftPackageReference "Screeen" */;
+			productName = Screeen;
+		};
+		C5A00200000000000000000A /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A001000000000000000009 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+		C5A00200000000000000000B /* SwiftHEXColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A00100000000000000000A /* XCRemoteSwiftPackageReference "SwiftHEXColors" */;
+			productName = SwiftHEXColors;
+		};
+		C5A00200000000000000000C /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A00100000000000000000B /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		C5A00200000000000000000D /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5A00100000000000000000C /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAC43DBE1B35D8B100C06102 /* Project object */;
 }
