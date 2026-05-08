@@ -11,8 +11,8 @@
 
 Clipy is a Clipboard extension app for macOS.
 
-> The Clipiero project is about maintenance and security update of Clipy.
-> There won't be any new features. See [MODERN.md](MODERN.md).
+> The Clipiero project is about keeping up to the new macOS versions and fixing bugs.
+> Nothing about adding features or redesigning the app. See [MODERN.md](MODERN.md) for details.
 
 ---
 

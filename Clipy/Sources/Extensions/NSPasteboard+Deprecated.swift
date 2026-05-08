@@ -19,6 +19,30 @@ import Cocoa
  **/
 extension NSPasteboard.PasteboardType {
 
+    static var modernString: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")
+    }
+
+    static var modernRTF: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "public.rtf")
+    }
+
+    static var modernRTFD: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "com.apple.flat-rtfd")
+    }
+
+    static var modernPDF: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "com.adobe.pdf")
+    }
+
+    static var modernURL: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "public.url")
+    }
+
+    static var modernTIFF: NSPasteboard.PasteboardType {
+        return NSPasteboard.PasteboardType(rawValue: "public.tiff")
+    }
+
     static var deprecatedString: NSPasteboard.PasteboardType {
         return NSPasteboard.PasteboardType(rawValue: "NSStringPboardType")
     }
@@ -45,6 +69,25 @@ extension NSPasteboard.PasteboardType {
 
     static var deprecatedTIFF: NSPasteboard.PasteboardType {
         return NSPasteboard.PasteboardType(rawValue: "NSTIFFPboardType")
+    }
+
+    var clipyLegacyType: NSPasteboard.PasteboardType {
+        switch self {
+        case .modernString:
+            return .deprecatedString
+        case .modernRTF:
+            return .deprecatedRTF
+        case .modernRTFD:
+            return .deprecatedRTFD
+        case .modernPDF:
+            return .deprecatedPDF
+        case .modernURL:
+            return .deprecatedURL
+        case .modernTIFF:
+            return .deprecatedTIFF
+        default:
+            return self
+        }
     }
 
 }

@@ -162,7 +162,10 @@ extension ClipService {
     }
 
     private func types(with pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
-        let types = pasteboard.types?.filter { canSave(with: $0) } ?? []
+        let types = pasteboard.types?.compactMap { type -> NSPasteboard.PasteboardType? in
+            let legacyType = type.clipyLegacyType
+            return canSave(with: legacyType) ? legacyType : nil
+        } ?? []
         return NSOrderedSet(array: types).array as? [NSPasteboard.PasteboardType] ?? []
     }
 
