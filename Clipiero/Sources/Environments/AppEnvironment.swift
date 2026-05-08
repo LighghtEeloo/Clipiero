@@ -91,7 +91,7 @@ struct AppEnvironment {
                            accessibilityService: current.accessibilityService,
                            menuManager: current.menuManager,
                            updateService: current.updateService,
-                           defaults: current.defaults)
+                           defaults: defaults)
     }
 
  }

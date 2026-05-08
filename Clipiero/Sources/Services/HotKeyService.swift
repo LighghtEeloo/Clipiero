@@ -62,21 +62,32 @@ extension HotKeyService {
             migrationKeyCombos()
             AppEnvironment.current.defaults.set(true, forKey: Constants.HotKey.migrateNewKeyCombo)
             AppEnvironment.current.defaults.synchronize()
+        } else if shouldRestoreDefaultKeyCombos() {
+            migrationKeyCombos()
+            AppEnvironment.current.defaults.synchronize()
         }
         // Snippet hotkey
         setupSnippetHotKeys()
 
         // Main menu
-        change(with: .main, keyCombo: savedKeyCombo(forKey: Constants.HotKey.mainKeyCombo))
+        update(with: .main, keyCombo: savedKeyCombo(forKey: Constants.HotKey.mainKeyCombo), shouldSave: false)
         // History menu
-        change(with: .history, keyCombo: savedKeyCombo(forKey: Constants.HotKey.historyKeyCombo))
+        update(with: .history, keyCombo: savedKeyCombo(forKey: Constants.HotKey.historyKeyCombo), shouldSave: false)
         // Snippet menu
-        change(with: .snippet, keyCombo: savedKeyCombo(forKey: Constants.HotKey.snippetKeyCombo))
+        update(with: .snippet, keyCombo: savedKeyCombo(forKey: Constants.HotKey.snippetKeyCombo), shouldSave: false)
         // Clear History
-        changeClearHistoryKeyCombo(savedKeyCombo(forKey: Constants.HotKey.clearHistoryKeyCombo))
+        updateClearHistoryKeyCombo(savedKeyCombo(forKey: Constants.HotKey.clearHistoryKeyCombo), shouldSave: false)
     }
 
     func change(with type: MenuType, keyCombo: KeyCombo?) {
+        update(with: type, keyCombo: keyCombo, shouldSave: true)
+    }
+
+    func changeClearHistoryKeyCombo(_ keyCombo: KeyCombo?) {
+        updateClearHistoryKeyCombo(keyCombo, shouldSave: true)
+    }
+
+    private func update(with type: MenuType, keyCombo: KeyCombo?, shouldSave: Bool) {
         switch type {
         case .main:
             mainKeyCombo = keyCombo
@@ -85,13 +96,14 @@ extension HotKeyService {
         case .snippet:
             snippetKeyCombo = keyCombo
         }
-        register(with: type, keyCombo: keyCombo)
+        register(with: type, keyCombo: keyCombo, shouldSave: shouldSave)
     }
 
-    func changeClearHistoryKeyCombo(_ keyCombo: KeyCombo?) {
+    private func updateClearHistoryKeyCombo(_ keyCombo: KeyCombo?, shouldSave: Bool) {
         clearHistoryKeyCombo = keyCombo
-        AppEnvironment.current.defaults.set(keyCombo?.archive(), forKey: Constants.HotKey.clearHistoryKeyCombo)
-        AppEnvironment.current.defaults.synchronize()
+        if shouldSave {
+            save(keyCombo, forKey: Constants.HotKey.clearHistoryKeyCombo)
+        }
         // Reset hotkey
         HotKeyCenter.shared.unregisterHotKey(with: "ClearHistory")
         // Register new hotkey
@@ -105,12 +117,21 @@ extension HotKeyService {
         guard let keyCombo = NSKeyedUnarchiver.clipieroUnarchiveObject(ofType: KeyCombo.self, from: data) else { return nil }
         return keyCombo
     }
+
+    private func shouldRestoreDefaultKeyCombos() -> Bool {
+        return [Constants.HotKey.mainKeyCombo,
+                Constants.HotKey.historyKeyCombo,
+                Constants.HotKey.snippetKeyCombo]
+            .allSatisfy { AppEnvironment.current.defaults.object(forKey: $0) == nil }
+    }
 }
 
 // MARK: - Register
 private extension HotKeyService {
-    func register(with type: MenuType, keyCombo: KeyCombo?) {
-        save(with: type, keyCombo: keyCombo)
+    func register(with type: MenuType, keyCombo: KeyCombo?, shouldSave: Bool) {
+        if shouldSave {
+            save(keyCombo, forKey: type.userDefaultsKey)
+        }
         // Reset hotkey
         HotKeyCenter.shared.unregisterHotKey(with: type.rawValue)
         // Register new hotkey
@@ -119,8 +140,12 @@ private extension HotKeyService {
         hotKey.register()
     }
 
-    func save(with type: MenuType, keyCombo: KeyCombo?) {
-        AppEnvironment.current.defaults.set(keyCombo?.archive(), forKey: type.userDefaultsKey)
+    func save(_ keyCombo: KeyCombo?, forKey key: String) {
+        if let keyCombo = keyCombo {
+            AppEnvironment.current.defaults.set(keyCombo.archive(), forKey: key)
+        } else {
+            AppEnvironment.current.defaults.removeObject(forKey: key)
+        }
         AppEnvironment.current.defaults.synchronize()
     }
 }
