@@ -54,10 +54,8 @@ If you can contribute, please see [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 ### Distribution
 If you distribute derived work, especially in the Mac App Store, I ask you to follow two rules:
 
-1. Don't use `Clipy` and `ClipMenu` as your product name.
+1. Don't use `Clipiero`, `Clipy`, and `ClipMenu` as your product name.
 2. Follow the MIT license terms.
-
-This fork uses `Clipiero` as its product name to distinguish it from upstream Clipy.
 
 Thank you for your cooperation.
 
