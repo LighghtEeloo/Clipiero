@@ -22,7 +22,7 @@ protocol CPYPasteboardReading {
 
 extension NSPasteboard: CPYPasteboardReading {}
 
-final class CPYClipData: NSObject {
+final class CPYClipData: NSObject, NSCoding {
 
     // MARK: - Properties
     fileprivate let kTypesKey       = "types"
@@ -159,7 +159,7 @@ final class CPYClipData: NSObject {
     }
 
     // MARK: - NSCoding
-    @objc func encodeWithCoder(_ aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(types.map { $0.rawValue }, forKey: kTypesKey)
         aCoder.encode(stringValue, forKey: kStringValueKey)
         aCoder.encode(RTFData, forKey: kRTFDataKey)
@@ -169,7 +169,7 @@ final class CPYClipData: NSObject {
         aCoder.encode(image, forKey: kImageKey)
     }
 
-    @objc required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         types = (aDecoder.decodeObject(forKey: kTypesKey) as? [String])?
             .compactMap { NSPasteboard.PasteboardType(rawValue: $0).clipieroStoredType } ?? []
         fileNames = aDecoder.decodeObject(forKey: kFileNamesKey) as? [String] ?? [String]()
