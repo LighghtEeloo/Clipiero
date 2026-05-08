@@ -64,7 +64,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     }
 
     @objc func clearAllHistory() {
-        let isShowAlert = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.showAlertBeforeClearHistory)
+        let isShowAlert = AppEnvironment.current.preferences.showAlertBeforeClearHistory
         if isShowAlert {
             let alert = NSAlert()
             alert.messageText = L10n.clearHistory
@@ -164,7 +164,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     }
 
     private func reflectLoginItemState() {
-        let isInLoginItems = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.loginItem)
+        let isInLoginItems = AppEnvironment.current.preferences.loginItem
         toggleAddingToLoginItems(isInLoginItems)
     }
 }
@@ -183,7 +183,8 @@ extension AppDelegate: NSApplicationDelegate {
         AppEnvironment.current.accessibilityService.isAccessibilityEnabled(isPrompt: true)
 
         // Show Login Item
-        if !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.loginItem) && !AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.suppressAlertForLoginItem) {
+        let preferences = AppEnvironment.current.preferences
+        if !preferences.loginItem && !preferences.suppressAlertForLoginItem {
             promptToAddLoginItems()
         }
 
@@ -210,15 +211,13 @@ extension AppDelegate: NSApplicationDelegate {
 private extension AppDelegate {
     func bind() {
         // Login Item
-        AppEnvironment.current.defaults.rx.observe(Bool.self, Constants.UserDefaults.loginItem, retainSelf: false)
-            .compactMap { $0 }
+        AppEnvironment.current.preferences.loginItemChanges
             .subscribe(onNext: { [weak self] _ in
                 self?.reflectLoginItemState()
             })
             .disposed(by: disposeBag)
         // Observe Screenshot
-        let observerScreenshot = AppEnvironment.current.defaults.rx.observe(Bool.self, Constants.Beta.observerScreenshot, retainSelf: false)
-            .compactMap { $0 }
+        let observerScreenshot = AppEnvironment.current.preferences.observerScreenshotChanges
             .share(replay: 1)
         observerScreenshot
             .subscribe(onNext: { [weak self] enabled in

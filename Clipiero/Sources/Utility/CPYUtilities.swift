@@ -18,7 +18,7 @@ final class CPYUtilities {
     static func initSDKs() {
         // Fabric
         AppEnvironment.current.defaults.register(defaults: ["NSApplicationCrashOnExceptions": true])
-        guard AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.collectCrashReport) else { return }
+        guard AppEnvironment.current.preferences.collectCrashReport else { return }
         // TODO: - Migrate Firebase Crashlytics
         CPYUtilities.sendCustomLog(with: "applicationDidFinishLaunching")
     }
@@ -38,7 +38,6 @@ final class CPYUtilities {
         defaultValues.updateValue(NSNumber(value: true), forKey: Constants.UserDefaults.collectCrashReport)
 
         /* Menu */
-        defaultValues.updateValue(NSNumber(value: 16), forKey: Constants.UserDefaults.menuIconSize)
         defaultValues.updateValue(NSNumber(value: 20), forKey: Constants.UserDefaults.maxMenuItemTitleLength)
         defaultValues.updateValue(NSNumber(value: 0), forKey: Constants.UserDefaults.numberOfItemsPlaceInline)
         defaultValues.updateValue(NSNumber(value: 10), forKey: Constants.UserDefaults.numberOfItemsPlaceInsideFolder)
@@ -100,7 +99,7 @@ final class CPYUtilities {
     }
 
     static func sendCustomLog(with name: String) {
-        guard AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.collectCrashReport) else { return }
+        guard AppEnvironment.current.preferences.collectCrashReport else { return }
         // TODO: - Migrate Firebase Crashlytics
     }
 }

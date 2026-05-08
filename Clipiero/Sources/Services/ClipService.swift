@@ -40,9 +40,7 @@ final class ClipService {
             })
             .disposed(by: disposeBag)
         // Store types
-        AppEnvironment.current.defaults.rx
-            .observe([String: NSNumber].self, Constants.UserDefaults.storeTypes)
-            .compactMap { $0 }
+        AppEnvironment.current.preferences.storeTypesChanges
             .asDriver(onErrorDriveWith: .empty())
             .drive(onNext: { [weak self] in
                 self?.storeTypes = $0
@@ -115,7 +113,7 @@ extension ClipService {
     fileprivate func save(with data: CPYClipData) {
         let realm = try! Realm()
         // Copy already copied history
-        let isCopySameHistory = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.copySameHistory)
+        let isCopySameHistory = AppEnvironment.current.preferences.copySameHistory
         if realm.object(ofType: CPYClip.self, forPrimaryKey: "\(data.hash)") != nil, !isCopySameHistory { return }
         // Don't save invalidated clip
         if let clip = realm.object(ofType: CPYClip.self, forPrimaryKey: "\(data.hash)"), clip.isInvalidated { return }
@@ -124,7 +122,7 @@ extension ClipService {
         if data.isOnlyStringType && data.stringValue.isEmpty { return }
 
         // Overwrite same history
-        let isOverwriteHistory = AppEnvironment.current.defaults.bool(forKey: Constants.UserDefaults.overwriteSameHistory)
+        let isOverwriteHistory = AppEnvironment.current.preferences.overwriteSameHistory
         let savedHash = (isOverwriteHistory) ? data.hash : Int(arc4random() % 1000000)
 
         // Saved time and path
@@ -133,7 +131,7 @@ extension ClipService {
         // Create Realm object
         let clip = CPYClip()
         clip.dataPath = savedPath
-        clip.title = data.stringValue[0...10000]
+        clip.title = String(data.stringValue.prefix(10000))
         clip.dataHash = "\(savedHash)"
         clip.updateTime = unixTime
         clip.primaryType = data.primaryType?.rawValue ?? ""

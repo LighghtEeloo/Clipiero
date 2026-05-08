@@ -51,6 +51,28 @@ class FolderSpec: QuickSpec {
                 expect(snippet.identifier) == savedSnippet.identifier
             }
 
+            it("deep copy unmanaged snippets") {
+                let folder = CPYFolder()
+                folder.index = 100
+                folder.title = "unmanaged folder"
+
+                let savedSnippet = CPYSnippet()
+                savedSnippet.index = 10
+                savedSnippet.title = "unmanaged snippet"
+                savedSnippet.content = "content"
+                folder.snippets.append(savedSnippet)
+
+                let copyFolder = folder.deepCopy()
+                expect(copyFolder.realm).to(beNil())
+                expect(copyFolder.snippets.count) == 1
+
+                let snippet = copyFolder.snippets.first!
+                expect(snippet.realm).to(beNil())
+                expect(snippet.index) == savedSnippet.index
+                expect(snippet.title) == savedSnippet.title
+                expect(snippet.content) == savedSnippet.content
+            }
+
             it("Create folder") {
                 let folder = CPYFolder.create()
                 expect(folder.title) == "untitled folder"

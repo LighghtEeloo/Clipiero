@@ -29,17 +29,11 @@ struct Constants {
     }
 
     struct Common {
-        static let index = "index"
-        static let title = "title"
-        static let snippets = "snippets"
-        static let content = "content"
-        static let selector = "selector"
         static let draggedDataType = "public.data"
     }
 
     struct UserDefaults {
         static let hotKeys = "kCPYPrefHotKeysKey"
-        static let menuIconSize = "kCPYPrefMenuIconSizeKey"
         static let maxHistorySize = "kCPYPrefMaxHistorySizeKey"
         static let storeTypes = "kCPYPrefStoreTypesKey"
         static let inputPasteCommand = "kCPYPrefInputPasteCommandKey"
@@ -63,7 +57,6 @@ struct Constants {
         static let thumbnailHeight = "thumbnailHeight"
         static let overwriteSameHistory = "kCPYPrefOverwriteSameHistroy"
         static let copySameHistory = "kCPYPrefCopySameHistroy"
-        static let suppressAlertForDeleteSnippet = "kCPYSuppressAlertForDeleteSnippet"
         static let excludeApplications = "kCPYExcludeApplications"
         static let collectCrashReport = "kCPYCollectCrashReport"
         static let showColorPreviewInTheMenu = "kCPYPrefShowColorPreviewInTheMenu"
@@ -84,8 +77,6 @@ struct Constants {
     }
 
     struct Xml {
-        static let fileType = "xml"
-        static let type = "type"
         static let rootElement = "folders"
         static let folderElement = "folder"
         static let snippetElement = "snippet"

@@ -90,6 +90,17 @@ class ClipDataSpec: QuickSpec {
                 expect(data.RTFData) == rtfdData
             }
 
+            it("Writes stored string data back to the pasteboard") {
+                var pasteboard = MockPasteboard()
+                pasteboard.strings[.string] = "hello"
+                let data = CPYClipData(pasteboard: pasteboard, types: [.string])
+                let writablePasteboard = NSPasteboard(name: NSPasteboard.Name(UUID().uuidString))
+
+                data.write(to: writablePasteboard)
+
+                expect(writablePasteboard.string(forType: .string)) == "hello"
+            }
+
         }
 
     }

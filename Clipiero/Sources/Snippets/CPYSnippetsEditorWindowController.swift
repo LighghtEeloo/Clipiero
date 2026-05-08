@@ -14,7 +14,6 @@ import Cocoa
 import RealmSwift
 import KeyHolder
 import Magnet
-import AEXML
 import UniformTypeIdentifiers
 
 final class CPYSnippetsEditorWindowController: NSWindowController {
@@ -46,6 +45,7 @@ final class CPYSnippetsEditorWindowController: NSWindowController {
     }
 
     private var folders = [CPYFolder]()
+    private let snippetXMLService = SnippetXMLService()
     private var selectedSnippet: CPYSnippet? {
         guard let snippet = outlineView.item(atRow: outlineView.selectedRow) as? CPYSnippet else { return nil }
         return snippet
@@ -127,7 +127,7 @@ extension CPYSnippetsEditorWindowController {
         if result != NSApplication.ModalResponse.alertFirstButtonReturn { return }
 
         if let folder = item as? CPYFolder {
-            folders.removeObject(folder)
+            folders.removeAll { $0 == folder }
             folder.remove()
             AppEnvironment.current.hotKeyService.unregisterSnippetHotKey(with: folder.identifier)
         } else if let snippet = item as? CPYSnippet, let folder = outlineView.parent(forItem: item) as? CPYFolder, let index = folder.snippets.index(of: snippet) {
@@ -170,40 +170,9 @@ extension CPYSnippetsEditorWindowController {
         do {
             let realm = try! Realm()
             let lastFolder = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true).last
-            var folderIndex = (lastFolder?.index ?? -1) + 1
-            // Create Document
-            var options = AEXMLOptions()
-            options.parserSettings.shouldTrimWhitespace = false
-            let xmlDocument = try AEXMLDocument(xml: data, options: options)
-            xmlDocument[Constants.Xml.rootElement]
-                .children
-                .forEach { folderElement in
-                    let folder = CPYFolder()
-                    // Title
-                    folder.title = folderElement[Constants.Xml.titleElement].value ?? "untitled folder"
-                    // Index
-                    folder.index = folderIndex
-                    // Sync DB
-                    realm.transaction { realm.add(folder) }
-                    // Snippet
-                    var snippetIndex = 0
-                    folderElement[Constants.Xml.snippetsElement][Constants.Xml.snippetElement]
-                        .all?
-                        .forEach { snippetElement in
-                            let snippet = CPYSnippet()
-                            snippet.title = snippetElement[Constants.Xml.titleElement].value ?? "untitled snippet"
-                            snippet.content = snippetElement[Constants.Xml.contentElement].value ?? ""
-                            snippet.index = snippetIndex
-                            realm.transaction { folder.snippets.append(snippet) }
-                            // Increment snippet index
-                            snippetIndex += 1
-                        }
-                    // Increment folder index
-                    folderIndex += 1
-                    // Add folder
-                    let copyFolder = folder.deepCopy()
-                    folders.append(copyFolder)
-                }
+            let importedFolders = try snippetXMLService.importedFolders(from: data, startingIndex: (lastFolder?.index ?? -1) + 1)
+            realm.transaction { realm.add(importedFolders) }
+            folders.append(contentsOf: importedFolders.map { $0.deepCopy() })
             outlineView.reloadData()
         } catch {
             NSSound.beep()
@@ -211,25 +180,9 @@ extension CPYSnippetsEditorWindowController {
     }
 
     @IBAction private func exportSnippetButtonTapped(_ sender: AnyObject) {
-        let xmlDocument = AEXMLDocument()
-        let rootElement = xmlDocument.addChild(name: Constants.Xml.rootElement)
-
         let realm = try! Realm()
         let folders = realm.objects(CPYFolder.self).sorted(byKeyPath: #keyPath(CPYFolder.index), ascending: true)
-        folders.forEach { folder in
-            let folderElement = rootElement.addChild(name: Constants.Xml.folderElement)
-
-            folderElement.addChild(name: Constants.Xml.titleElement, value: folder.title)
-
-            let snippetsElement = folderElement.addChild(name: Constants.Xml.snippetsElement)
-            folder.snippets
-                .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
-                .forEach { snippet in
-                    let snippetElement = snippetsElement.addChild(name: Constants.Xml.snippetElement)
-                    snippetElement.addChild(name: Constants.Xml.titleElement, value: snippet.title)
-                    snippetElement.addChild(name: Constants.Xml.contentElement, value: snippet.content)
-                }
-        }
+        guard let data = snippetXMLService.exportData(from: folders) else { return }
 
         let panel = NSSavePanel()
         panel.accessoryView = nil
@@ -242,7 +195,6 @@ extension CPYSnippetsEditorWindowController {
 
         if returnCode != NSApplication.ModalResponse.OK { return }
 
-        guard let data = xmlDocument.xml.data(using: String.Encoding.utf8) else { return }
         guard let url = panel.url else { return }
 
         do {

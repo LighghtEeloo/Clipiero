@@ -33,20 +33,16 @@ final class CPYFolder: Object {
 extension CPYFolder {
     func deepCopy() -> CPYFolder {
         let folder = CPYFolder(value: self)
-        var snippets = [CPYSnippet]()
+        let copiedSnippets: [CPYSnippet]
         if realm == nil {
-            snippets.forEach {
-                let snippet = CPYSnippet(value: $0)
-                snippets.append(snippet)
-            }
+            copiedSnippets = snippets.map { CPYSnippet(value: $0) }
         } else {
-            self.snippets.sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true).forEach {
-                let snippet = CPYSnippet(value: $0)
-                snippets.append(snippet)
-            }
+            copiedSnippets = snippets
+                .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
+                .map { CPYSnippet(value: $0) }
         }
         folder.snippets.removeAll()
-        folder.snippets.append(objectsIn: snippets)
+        folder.snippets.append(objectsIn: copiedSnippets)
         return folder
     }
 }

@@ -69,9 +69,9 @@ final class CPYClipData: NSObject, NSCoding {
         return types == [.string]
     }
     var thumbnailImage: NSImage? {
-        let defaults = UserDefaults.standard
-        let width = defaults.integer(forKey: Constants.UserDefaults.thumbnailWidth)
-        let height = defaults.integer(forKey: Constants.UserDefaults.thumbnailHeight)
+        let preferences = AppEnvironment.current.preferences
+        let width = preferences.thumbnailWidth
+        let height = preferences.thumbnailHeight
 
         if let image = image, fileNames.isEmpty {
             // Image only data
@@ -156,6 +156,51 @@ final class CPYClipData: NSObject, NSCoding {
         self.RTFData = nil
         self.PDF = nil
         self.image = nil
+    }
+
+    // MARK: - Pasteboard Writing
+    func write(to pasteboard: NSPasteboard) {
+        switch types {
+        case [.fileURL]:
+            let urls = fileNames.map { NSURL(fileURLWithPath: $0) }
+            pasteboard.clearContents()
+            pasteboard.writeObjects(urls)
+            return
+        case [.URL]:
+            let urls = URLs.compactMap { NSURL(string: $0) }
+            pasteboard.clearContents()
+            pasteboard.writeObjects(urls)
+            return
+        default:
+            break
+        }
+
+        pasteboard.declareTypes(types, owner: nil)
+        types.forEach { type in
+            switch type {
+            case .string:
+                pasteboard.setString(stringValue, forType: .string)
+            case .rtfd:
+                guard let rtfData = RTFData else { return }
+                pasteboard.setData(rtfData, forType: .rtfd)
+            case .rtf:
+                guard let rtfData = RTFData else { return }
+                pasteboard.setData(rtfData, forType: .rtf)
+            case .pdf:
+                guard let pdfData = PDF, let pdfRep = NSPDFImageRep(data: pdfData) else { return }
+                pasteboard.setData(pdfRep.pdfRepresentation, forType: .pdf)
+            case .fileURL:
+                guard let fileName = fileNames.first else { return }
+                pasteboard.setString(URL(fileURLWithPath: fileName).absoluteString, forType: .fileURL)
+            case .URL:
+                guard let url = URLs.first else { return }
+                pasteboard.setString(url, forType: .URL)
+            case .tiff:
+                guard let image = image, let imageData = image.tiffRepresentation else { return }
+                pasteboard.setData(imageData, forType: .tiff)
+            default: break
+            }
+        }
     }
 
     // MARK: - NSCoding
