@@ -15,6 +15,8 @@ Clipiero is a forked and maintained version of [Clipy](https://github.com/Clipy/
 
 > The Clipiero project is about keeping up to the new macOS versions and fixing bugs.
 > Nothing about adding features or redesigning the app. See [MODERN.md](MODERN.md) for details.
+>
+> Maintainers should keep [WORKLOG.md](WORKLOG.md) updated with concise notes about codebase maintenance, cleanup, and investigation work that does not otherwise have a dedicated changelog entry.
 
 ---
 

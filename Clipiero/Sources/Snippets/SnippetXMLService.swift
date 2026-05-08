@@ -40,13 +40,11 @@ struct SnippetXMLService {
             folderElement.addChild(name: Constants.Xml.titleElement, value: folder.title)
 
             let snippetsElement = folderElement.addChild(name: Constants.Xml.snippetsElement)
-            folder.snippets
-                .sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true)
-                .forEach { snippet in
-                    let snippetElement = snippetsElement.addChild(name: Constants.Xml.snippetElement)
-                    snippetElement.addChild(name: Constants.Xml.titleElement, value: snippet.title)
-                    snippetElement.addChild(name: Constants.Xml.contentElement, value: snippet.content)
-                }
+            sortedSnippets(in: folder).forEach { snippet in
+                let snippetElement = snippetsElement.addChild(name: Constants.Xml.snippetElement)
+                snippetElement.addChild(name: Constants.Xml.titleElement, value: snippet.title)
+                snippetElement.addChild(name: Constants.Xml.contentElement, value: snippet.content)
+            }
         }
 
         return xmlDocument.xml.data(using: .utf8)
@@ -70,5 +68,13 @@ struct SnippetXMLService {
             }
 
         return folder
+    }
+
+    private func sortedSnippets(in folder: CPYFolder) -> [CPYSnippet] {
+        if folder.realm == nil {
+            return Array(folder.snippets).sorted { $0.index < $1.index }
+        }
+
+        return Array(folder.snippets.sorted(byKeyPath: #keyPath(CPYSnippet.index), ascending: true))
     }
 }

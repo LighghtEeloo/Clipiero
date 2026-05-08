@@ -11,6 +11,8 @@
 		C50D00101FF0000000000010 /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D000F1FF000000000000F /* UpdateService.swift */; };
 		C50D00121FF0000000000012 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00111FF0000000000011 /* AppPreferences.swift */; };
 		C50D00141FF0000000000014 /* SnippetXMLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00131FF0000000000013 /* SnippetXMLService.swift */; };
+		C50D00161FF0000000000016 /* AppPreferencesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00151FF0000000000015 /* AppPreferencesSpec.swift */; };
+		C50D00181FF0000000000018 /* SnippetXMLServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50D00171FF0000000000017 /* SnippetXMLServiceSpec.swift */; };
 		C5A003000000000000000001 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000001 /* AEXML */; };
 		C5A003000000000000000002 /* KeyHolder in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000002 /* KeyHolder */; };
 		C5A003000000000000000003 /* Magnet in Frameworks */ = {isa = PBXBuildFile; productRef = C5A002000000000000000003 /* Magnet */; };
@@ -159,6 +161,8 @@
 		C50D000F1FF000000000000F /* UpdateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		C50D00111FF0000000000011 /* AppPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		C50D00131FF0000000000013 /* SnippetXMLService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnippetXMLService.swift; sourceTree = "<group>"; };
+		C50D00151FF0000000000015 /* AppPreferencesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferencesSpec.swift; sourceTree = "<group>"; };
+		C50D00171FF0000000000017 /* SnippetXMLServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnippetXMLServiceSpec.swift; sourceTree = "<group>"; };
 		C5F1B7321FF74A2D00D2DA83 /* NSPasteboard+Clipiero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Clipiero.swift"; sourceTree = "<group>"; };
 		FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotKeyServiceSpec.swift; sourceTree = "<group>"; };
 		FA0D5CE71DDCC61600AC9052 /* ClipService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipService.swift; sourceTree = "<group>"; };
@@ -542,11 +546,13 @@
 		FAC43DDB1B35D8B100C06102 /* ClipieroTests */ = {
 			isa = PBXGroup;
 			children = (
+				C50D00151FF0000000000015 /* AppPreferencesSpec.swift */,
 				C50D00011FF0000000000001 /* ClipDataSpec.swift */,
 				FA08EDF71D1FED7D000D1D13 /* HotKeyServiceSpec.swift */,
 				FA6167931D3ACCB90049FA14 /* DraggedDataSpec.swift */,
 				FA6167911D3ABEB10049FA14 /* FolderSpec.swift */,
 				FA6167951D3ACDD80049FA14 /* SnippetSpec.swift */,
+				C50D00171FF0000000000017 /* SnippetXMLServiceSpec.swift */,
 				FAC43DDC1B35D8B100C06102 /* Supporting Files */,
 			);
 			path = ClipieroTests;
@@ -823,10 +829,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50D00161FF0000000000016 /* AppPreferencesSpec.swift in Sources */,
 				FA6167921D3ABEB10049FA14 /* FolderSpec.swift in Sources */,
 				FA08EDF81D1FED7D000D1D13 /* HotKeyServiceSpec.swift in Sources */,
 				FA6167961D3ACDD80049FA14 /* SnippetSpec.swift in Sources */,
 				FA6167941D3ACCB90049FA14 /* DraggedDataSpec.swift in Sources */,
+				C50D00181FF0000000000018 /* SnippetXMLServiceSpec.swift in Sources */,
 				C50D00021FF0000000000002 /* ClipDataSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,6 +26,44 @@ private struct MockPasteboard: CPYPasteboardReading {
     }
 }
 
+private func makeWritablePasteboard() -> NSPasteboard {
+    let pasteboard = NSPasteboard(name: NSPasteboard.Name(UUID().uuidString))
+    pasteboard.clearContents()
+    return pasteboard
+}
+
+private func makePDFData() -> Data {
+    let data = NSMutableData()
+    var mediaBox = CGRect(x: 0, y: 0, width: 10, height: 10)
+    guard let consumer = CGDataConsumer(data: data as CFMutableData),
+          let context = CGContext(consumer: consumer, mediaBox: &mediaBox, nil) else {
+        return Data()
+    }
+    context.beginPDFPage(nil)
+    context.setFillColor(CGColor(red: 1, green: 0, blue: 0, alpha: 1))
+    context.fill(mediaBox)
+    context.endPDFPage()
+    context.closePDF()
+    return data as Data
+}
+
+private func makeTestImage() -> NSImage {
+    let bitmap = NSBitmapImageRep(bitmapDataPlanes: nil,
+                                  pixelsWide: 1,
+                                  pixelsHigh: 1,
+                                  bitsPerSample: 8,
+                                  samplesPerPixel: 4,
+                                  hasAlpha: true,
+                                  isPlanar: false,
+                                  colorSpaceName: .deviceRGB,
+                                  bytesPerRow: 0,
+                                  bitsPerPixel: 0)!
+    bitmap.setColor(.red, atX: 0, y: 0)
+    let image = NSImage(size: NSSize(width: 1, height: 1))
+    image.addRepresentation(bitmap)
+    return image
+}
+
 class ClipDataSpec: QuickSpec {
     override class func spec() {
 
@@ -94,11 +132,79 @@ class ClipDataSpec: QuickSpec {
                 var pasteboard = MockPasteboard()
                 pasteboard.strings[.string] = "hello"
                 let data = CPYClipData(pasteboard: pasteboard, types: [.string])
-                let writablePasteboard = NSPasteboard(name: NSPasteboard.Name(UUID().uuidString))
+                let writablePasteboard = makeWritablePasteboard()
 
                 data.write(to: writablePasteboard)
 
                 expect(writablePasteboard.string(forType: .string)) == "hello"
+            }
+
+            it("Writes rich text data back to the pasteboard") {
+                let rtfData = Data("{\\rtf1 hello}".utf8)
+                var pasteboard = MockPasteboard()
+                pasteboard.dataValues[.rtf] = rtfData
+                let data = CPYClipData(pasteboard: pasteboard, types: [.rtf])
+                let writablePasteboard = makeWritablePasteboard()
+
+                data.write(to: writablePasteboard)
+
+                expect(writablePasteboard.data(forType: .rtf)) == rtfData
+            }
+
+            it("Writes PDF data back to the pasteboard") {
+                let pdfData = makePDFData()
+                var pasteboard = MockPasteboard()
+                pasteboard.dataValues[.pdf] = pdfData
+                let data = CPYClipData(pasteboard: pasteboard, types: [.pdf])
+                let writablePasteboard = makeWritablePasteboard()
+
+                data.write(to: writablePasteboard)
+
+                expect(writablePasteboard.data(forType: .pdf)).toNot(beNil())
+            }
+
+            it("Writes image data back to the pasteboard") {
+                var pasteboard = MockPasteboard()
+                pasteboard.objects = [makeTestImage()]
+                let data = CPYClipData(pasteboard: pasteboard, types: [.tiff])
+                let writablePasteboard = makeWritablePasteboard()
+
+                data.write(to: writablePasteboard)
+
+                expect(writablePasteboard.data(forType: .tiff)).toNot(beNil())
+            }
+
+            it("Writes multiple file URLs back to the pasteboard as separate objects") {
+                let fileNames = ["/tmp/clipiero-a.txt", "/tmp/clipiero-b.txt"]
+                var pasteboard = MockPasteboard()
+                pasteboard.propertyLists[.legacyFilenames] = fileNames
+                let data = CPYClipData(pasteboard: pasteboard, types: [.fileURL])
+                let writablePasteboard = makeWritablePasteboard()
+
+                data.write(to: writablePasteboard)
+
+                let urls = writablePasteboard.pasteboardItems?
+                    .compactMap { $0.string(forType: .fileURL) }
+                    .compactMap(URL.init(string:))
+                expect(urls?.map { $0.path }) == fileNames
+            }
+
+            it("Writes URLs back to the pasteboard as URL objects") {
+                let urlString = "https://clipy-app.com/"
+                var pasteboard = MockPasteboard()
+                pasteboard.strings[.URL] = urlString
+                let data = CPYClipData(pasteboard: pasteboard, types: [.URL])
+                let writablePasteboard = makeWritablePasteboard()
+
+                data.write(to: writablePasteboard)
+
+                let urls = writablePasteboard
+                    .readObjects(forClasses: [NSURL.self], options: nil)?
+                    .compactMap { object -> URL? in
+                        if let url = object as? URL { return url }
+                        return (object as? NSURL).map { $0 as URL }
+                    }
+                expect(urls?.first?.absoluteString) == urlString
             }
 
         }

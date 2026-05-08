@@ -6,3 +6,5 @@
 - Extracted snippet XML import/export into `SnippetXMLService`.
 - Fixed unmanaged `CPYFolder.deepCopy()` so snippets are preserved.
 - Verified the full test suite with `xcodebuild test`.
+- Added focused tests for `SnippetXMLService`, `AppPreferences`, and richer `CPYClipData` pasteboard writes.
+- Made snippet XML export tolerate unmanaged folders while preserving Realm-backed sorting.
