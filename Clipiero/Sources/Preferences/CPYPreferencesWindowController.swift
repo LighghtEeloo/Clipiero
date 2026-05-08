@@ -50,6 +50,18 @@ final class CPYPreferencesWindowController: NSWindowController {
                                   CPYUpdatesPreferenceViewController(nibName: "CPYUpdatesPreferenceViewController", bundle: nil),
                                   CPYBetaPreferenceViewController(nibName: "CPYBetaPreferenceViewController", bundle: nil)]
 
+    private var tabItems: [(imageView: NSImageView, textField: NSTextField, symbolNames: [String])] {
+        [
+            (generalImageView, generalTextField, ["gearshape", "gear"]),
+            (menuImageView, menuTextField, ["list.bullet.rectangle", "list.bullet"]),
+            (typeImageView, typeTextField, ["doc.on.clipboard", "doc.text"]),
+            (excludeImageView, excludeTextField, ["nosign", "xmark.circle"]),
+            (shortcutsImageView, shortcutsTextField, ["keyboard"]),
+            (updatesImageView, updatesTextField, ["arrow.triangle.2.circlepath", "arrow.clockwise"]),
+            (betaImageView, betaTextField, ["sparkles", "star"])
+        ]
+    }
+
     // MARK: - Window Life Cycle
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -97,57 +109,43 @@ extension CPYPreferencesWindowController: NSWindowDelegate {
 // MARK: - Layout
 private extension CPYPreferencesWindowController {
     func resetImages() {
-        generalImageView.image = Asset.prefGeneral.image
-        menuImageView.image = Asset.prefMenu.image
-        typeImageView.image = Asset.prefType.image
-        excludeImageView.image = Asset.prefExcluded.image
-        shortcutsImageView.image = Asset.prefShortcut.image
-        updatesImageView.image = Asset.prefUpdate.image
-        betaImageView.image = Asset.prefBeta.image
-
-        let textFields = [
-            generalTextField,
-            menuTextField,
-            typeTextField,
-            excludeTextField,
-            shortcutsTextField,
-            updatesTextField,
-            betaTextField
-        ]
-        textFields.forEach { $0?.textColor = .secondaryLabelColor }
+        tabItems.forEach { item in
+            updateTabIcon(item.imageView, symbolNames: item.symbolNames, color: .secondaryLabelColor)
+            item.textField.textColor = .secondaryLabelColor
+        }
     }
 
     func selectedTab(_ index: Int) {
         resetImages()
 
-        switch index {
-        case 0:
-            generalImageView.image = Asset.prefGeneralOn.image
-            selectTab(generalTextField)
-        case 1:
-            menuImageView.image = Asset.prefMenuOn.image
-            selectTab(menuTextField)
-        case 2:
-            typeImageView.image = Asset.prefTypeOn.image
-            selectTab(typeTextField)
-        case 3:
-            excludeImageView.image = Asset.prefExcludedOn.image
-            selectTab(excludeTextField)
-        case 4:
-            shortcutsImageView.image = Asset.prefShortcutOn.image
-            selectTab(shortcutsTextField)
-        case 5:
-            updatesImageView.image = Asset.prefUpdateOn.image
-            selectTab(updatesTextField)
-        case 6:
-            betaImageView.image = Asset.prefBetaOn.image
-            selectTab(betaTextField)
-        default: break
+        guard tabItems.indices.contains(index) else {
+            return
         }
+
+        let selectedItem = tabItems[index]
+        updateTabIcon(selectedItem.imageView, symbolNames: selectedItem.symbolNames, color: .controlAccentColor)
+        selectTab(selectedItem.textField)
     }
 
     func selectTab(_ textField: NSTextField) {
         textField.textColor = .controlAccentColor
+    }
+
+    func updateTabIcon(_ imageView: NSImageView, symbolNames: [String], color: NSColor) {
+        imageView.contentTintColor = color
+        imageView.imageScaling = .scaleProportionallyDown
+        imageView.image = symbolImage(named: symbolNames)
+    }
+
+    func symbolImage(named symbolNames: [String]) -> NSImage? {
+        let configuration = NSImage.SymbolConfiguration(pointSize: 20, weight: .regular)
+        let image = symbolNames
+            .lazy
+            .compactMap { NSImage(systemSymbolName: $0, accessibilityDescription: nil) }
+            .first?
+            .withSymbolConfiguration(configuration)
+        image?.isTemplate = true
+        return image
     }
 
     func switchView(_ index: Int) {
