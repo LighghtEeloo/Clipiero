@@ -66,7 +66,7 @@ final class CPYClipData: NSObject {
         return types.first
     }
     var isOnlyStringType: Bool {
-        return types == [.deprecatedString]
+        return types == [.string]
     }
     var thumbnailImage: NSImage? {
         let defaults = UserDefaults.standard
@@ -93,13 +93,13 @@ final class CPYClipData: NSObject {
     }
 
     static var availableTypes: [NSPasteboard.PasteboardType] {
-        return [.deprecatedString,
-                .deprecatedRTF,
-                .deprecatedRTFD,
-                .deprecatedPDF,
-                .deprecatedFilenames,
-                .deprecatedURL,
-                .deprecatedTIFF]
+        return [.string,
+                .rtf,
+                .rtfd,
+                .pdf,
+                .fileURL,
+                .URL,
+                .tiff]
     }
     static var availableTypesString: [String] {
         return ["String",
@@ -119,27 +119,27 @@ final class CPYClipData: NSObject {
     // MARK: - Init
     init(pasteboard: CPYPasteboardReading, types: [NSPasteboard.PasteboardType]) {
         super.init()
-        self.types = NSOrderedSet(array: types.map { $0.clipyLegacyType }).array as? [NSPasteboard.PasteboardType] ?? []
+        self.types = NSOrderedSet(array: types.map { $0.clipyStoredType }).array as? [NSPasteboard.PasteboardType] ?? []
         self.types.forEach { type in
             switch type {
-            case .deprecatedString:
-                guard let string = pasteboard.string(forTypes: [.deprecatedString, .modernString]) else { return }
+            case .string:
+                guard let string = pasteboard.string(forTypes: type.clipyReadableTypes) else { return }
                 stringValue = string
-            case .deprecatedRTFD:
-                RTFData = pasteboard.data(forTypes: [.deprecatedRTFD, .modernRTFD])
-            case .deprecatedRTF where RTFData == nil:
-                RTFData = pasteboard.data(forTypes: [.deprecatedRTF, .modernRTF])
-            case .deprecatedPDF:
-                PDF = pasteboard.data(forTypes: [.deprecatedPDF, .modernPDF])
-            case .deprecatedFilenames:
-                guard let filenames = pasteboard.propertyList(forType: .deprecatedFilenames) as? [String] else { return }
+            case .rtfd:
+                RTFData = pasteboard.data(forTypes: type.clipyReadableTypes)
+            case .rtf where RTFData == nil:
+                RTFData = pasteboard.data(forTypes: type.clipyReadableTypes)
+            case .pdf:
+                PDF = pasteboard.data(forTypes: type.clipyReadableTypes)
+            case .fileURL:
+                guard let filenames = pasteboard.clipyFileNames() else { return }
                 self.fileNames = filenames
-            case .deprecatedURL:
+            case .URL:
                 guard let urls = pasteboard.clipyURLs() else { return }
                 URLs = urls
-            case .deprecatedTIFF:
+            case .tiff:
                 image = pasteboard.readObjects(forClasses: [NSImage.self], options: nil)?.first as? NSImage
-                if image == nil, let data = pasteboard.data(forTypes: [.deprecatedTIFF, .modernTIFF]) {
+                if image == nil, let data = pasteboard.data(forTypes: type.clipyReadableTypes) {
                     image = NSImage(data: data)
                 }
             default: break
@@ -148,7 +148,7 @@ final class CPYClipData: NSObject {
     }
 
     init(image: NSImage) {
-        self.types = [.deprecatedTIFF]
+        self.types = [.tiff]
         self.image = image
     }
 
@@ -170,7 +170,8 @@ final class CPYClipData: NSObject {
     }
 
     @objc required init(coder aDecoder: NSCoder) {
-        types = (aDecoder.decodeObject(forKey: kTypesKey) as? [String])?.compactMap { NSPasteboard.PasteboardType(rawValue: $0) } ?? []
+        types = (aDecoder.decodeObject(forKey: kTypesKey) as? [String])?
+            .compactMap { NSPasteboard.PasteboardType(rawValue: $0).clipyStoredType } ?? []
         fileNames = aDecoder.decodeObject(forKey: kFileNamesKey) as? [String] ?? [String]()
         URLs = aDecoder.decodeObject(forKey: kURLsKey) as? [String] ?? [String]()
         stringValue = aDecoder.decodeObject(forKey: kStringValueKey) as? String ?? ""
@@ -200,11 +201,24 @@ private extension CPYPasteboardReading {
         return nil
     }
 
+    func clipyFileNames() -> [String]? {
+        if let filenames = propertyList(forType: .legacyFilenames) as? [String] {
+            return filenames
+        }
+        let urls = readObjects(forClasses: [NSURL.self], options: [.urlReadingFileURLsOnly: true])?.compactMap { object -> String? in
+            if let url = object as? URL {
+                return url.path
+            }
+            return (object as? NSURL)?.path
+        }
+        return urls?.isEmpty == false ? urls : nil
+    }
+
     func clipyURLs() -> [String]? {
-        if let urls = propertyList(forType: .deprecatedURL) as? [String] {
+        if let urls = propertyList(forType: .legacyURL) as? [String] {
             return urls
         }
-        if let url = string(forType: .modernURL) {
+        if let url = string(forType: .URL) {
             return [url]
         }
         let urls = readObjects(forClasses: [NSURL.self], options: nil)?.compactMap { object -> String? in

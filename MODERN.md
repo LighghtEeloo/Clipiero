@@ -6,7 +6,7 @@ Patch in small pieces. Broad PRs that mix runtime fixes, dependency changes, and
 
 What to watch:
 
-- Pasteboard: normalize modern UTI types such as `public.tiff`, `public.utf8-plain-text`, `public.rtf`, `com.adobe.pdf`, and `public.url` to Clipy's stored legacy types.
+- Pasteboard: store AppKit's modern pasteboard types and keep only a small read path for old archived legacy types.
 - macOS support: the supported floor is Apple Silicon on macOS 13 Ventura. Future support changes should update README, Podfile, CI, and Xcode settings together.
 - Build tooling: refresh Bundler, CocoaPods, and generated Pods as one reproducible setup.
 - Tests: keep Quick/Nimble wired, or migrate the test suite completely.

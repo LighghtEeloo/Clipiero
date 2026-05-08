@@ -328,7 +328,7 @@ private extension MenuManager {
             keyEquivalent = "\(shortCutNumber)"
         }
 
-        let primaryPboardType = NSPasteboard.PasteboardType(rawValue: clip.primaryType)
+        let primaryPboardType = NSPasteboard.PasteboardType(rawValue: clip.primaryType).clipyStoredType
         let clipString = clip.title
         let title = trimTitle(clipString)
         let titleWithMark = menuItemTitle(title, listNumber: listNumber, isMarkWithNumber: isMarkWithNumber)
@@ -342,11 +342,11 @@ private extension MenuManager {
             menuItem.toolTip = (clipString as NSString).substring(to: toIndex)
         }
 
-        if primaryPboardType == .deprecatedTIFF {
+        if primaryPboardType == .tiff {
             menuItem.title = menuItemTitle("(Image)", listNumber: listNumber, isMarkWithNumber: isMarkWithNumber)
-        } else if primaryPboardType == .deprecatedPDF {
+        } else if primaryPboardType == .pdf {
             menuItem.title = menuItemTitle("(PDF)", listNumber: listNumber, isMarkWithNumber: isMarkWithNumber)
-        } else if primaryPboardType == .deprecatedFilenames && title.isEmpty {
+        } else if primaryPboardType == .fileURL && title.isEmpty {
             menuItem.title = menuItemTitle("(Filenames)", listNumber: listNumber, isMarkWithNumber: isMarkWithNumber)
         }
 

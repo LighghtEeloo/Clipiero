@@ -31,45 +31,62 @@ class ClipDataSpec: QuickSpec {
 
         describe("Pasteboard type compatibility") {
 
-            it("Normalizes modern pasteboard types to legacy stored types") {
-                expect(NSPasteboard.PasteboardType.modernString.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedString
-                expect(NSPasteboard.PasteboardType.modernRTF.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedRTF
-                expect(NSPasteboard.PasteboardType.modernRTFD.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedRTFD
-                expect(NSPasteboard.PasteboardType.modernPDF.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedPDF
-                expect(NSPasteboard.PasteboardType.modernURL.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedURL
-                expect(NSPasteboard.PasteboardType.modernTIFF.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedTIFF
-                expect(NSPasteboard.PasteboardType.deprecatedString.clipyLegacyType) == NSPasteboard.PasteboardType.deprecatedString
+            it("Normalizes legacy pasteboard types to modern stored types") {
+                expect(NSPasteboard.PasteboardType.legacyString.clipyStoredType) == NSPasteboard.PasteboardType.string
+                expect(NSPasteboard.PasteboardType.legacyRTF.clipyStoredType) == NSPasteboard.PasteboardType.rtf
+                expect(NSPasteboard.PasteboardType.legacyRTFD.clipyStoredType) == NSPasteboard.PasteboardType.rtfd
+                expect(NSPasteboard.PasteboardType.legacyPDF.clipyStoredType) == NSPasteboard.PasteboardType.pdf
+                expect(NSPasteboard.PasteboardType.legacyFilenames.clipyStoredType) == NSPasteboard.PasteboardType.fileURL
+                expect(NSPasteboard.PasteboardType.legacyURL.clipyStoredType) == NSPasteboard.PasteboardType.URL
+                expect(NSPasteboard.PasteboardType.legacyTIFF.clipyStoredType) == NSPasteboard.PasteboardType.tiff
+                expect(NSPasteboard.PasteboardType.string.clipyStoredType) == NSPasteboard.PasteboardType.string
             }
 
-            it("Reads modern pasteboard data into legacy Clipy fields") {
+            it("Reads modern pasteboard data into modern Clipy fields") {
                 let rtfData = Data("rtf".utf8)
                 let pdfData = Data("pdf".utf8)
                 let url = "https://clipy-app.com/"
                 var pasteboard = MockPasteboard()
-                pasteboard.strings[.modernString] = "hello"
-                pasteboard.dataValues[.modernRTF] = rtfData
-                pasteboard.dataValues[.modernPDF] = pdfData
-                pasteboard.strings[.modernURL] = url
+                pasteboard.strings[.string] = "hello"
+                pasteboard.dataValues[.rtf] = rtfData
+                pasteboard.dataValues[.pdf] = pdfData
+                pasteboard.strings[.URL] = url
 
-                let data = CPYClipData(pasteboard: pasteboard, types: [.modernString, .modernRTF, .modernPDF, .modernURL])
+                let data = CPYClipData(pasteboard: pasteboard, types: [.string, .rtf, .pdf, .URL])
 
-                expect(data.types) == [.deprecatedString, .deprecatedRTF, .deprecatedPDF, .deprecatedURL]
+                expect(data.types) == [.string, .rtf, .pdf, .URL]
                 expect(data.stringValue) == "hello"
                 expect(data.RTFData) == rtfData
                 expect(data.PDF) == pdfData
                 expect(data.URLs) == [url]
             }
 
-            it("Prefers modern RTFD data over modern RTF when both are present") {
+            it("Reads legacy pasteboard data into modern Clipy fields") {
+                let rtfData = Data("rtf".utf8)
+                let filenames = ["/tmp/example.txt"]
+                var pasteboard = MockPasteboard()
+                pasteboard.strings[.legacyString] = "hello"
+                pasteboard.dataValues[.legacyRTF] = rtfData
+                pasteboard.propertyLists[.legacyFilenames] = filenames
+
+                let data = CPYClipData(pasteboard: pasteboard, types: [.legacyString, .legacyRTF, .legacyFilenames])
+
+                expect(data.types) == [.string, .rtf, .fileURL]
+                expect(data.stringValue) == "hello"
+                expect(data.RTFData) == rtfData
+                expect(data.fileNames) == filenames
+            }
+
+            it("Prefers RTFD data over RTF when both are present") {
                 let rtfdData = Data("rtfd".utf8)
                 let rtfData = Data("rtf".utf8)
                 var pasteboard = MockPasteboard()
-                pasteboard.dataValues[.modernRTFD] = rtfdData
-                pasteboard.dataValues[.modernRTF] = rtfData
+                pasteboard.dataValues[.rtfd] = rtfdData
+                pasteboard.dataValues[.rtf] = rtfData
 
-                let data = CPYClipData(pasteboard: pasteboard, types: [.modernRTFD, .modernRTF])
+                let data = CPYClipData(pasteboard: pasteboard, types: [.rtfd, .rtf])
 
-                expect(data.types) == [.deprecatedRTFD, .deprecatedRTF]
+                expect(data.types) == [.rtfd, .rtf]
                 expect(data.RTFData) == rtfdData
             }
 
