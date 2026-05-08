@@ -1,6 +1,6 @@
 # Modernization Notes
 
-Clipy is old software that still does a useful job. Our goal is to keep the basic clipboard workflow working on current macOS, not to redesign the app or add features.
+Clipiero inherits old Clipy code that still does a useful job. Our goal is to keep the basic clipboard workflow working on current macOS, not to redesign the app or add features.
 
 Patch in small pieces. Broad PRs that mix runtime fixes, dependency changes, and product decisions should be split before adoption.
 
