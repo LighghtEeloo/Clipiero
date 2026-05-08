@@ -16,9 +16,9 @@ struct Constants {
 
     struct Application {
         #if DEBUG
-            static let name = "ClipyDEBUG"
+            static let name = "ClipieroDEBUG"
         #else
-            static let name = "Clipy"
+            static let name = "Clipiero"
         #endif
     }
 

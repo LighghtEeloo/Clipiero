@@ -128,7 +128,7 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     // MARK: - Login Item Methods
     private func promptToAddLoginItems() {
         let alert = NSAlert()
-        alert.messageText = L10n.launchClipyOnSystemStartup
+        alert.messageText = L10n.launchClipieroOnSystemStartup
         alert.informativeText = L10n.youCanChangeThisSettingInThePreferencesIfYouWant
         alert.addButton(withTitle: L10n.launchOnSystemStartup)
         alert.addButton(withTitle: L10n.donTLaunch)

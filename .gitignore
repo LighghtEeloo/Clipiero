@@ -50,7 +50,7 @@ SourcePackages/
 .build/
 .swiftpm/configuration/
 # Keep the project-level Package.resolved; ignore duplicates from the legacy workspace.
-Clipy.xcworkspace/xcshareddata/swiftpm/
+Clipiero.xcworkspace/xcshareddata/swiftpm/
 
 # Carthage
 #

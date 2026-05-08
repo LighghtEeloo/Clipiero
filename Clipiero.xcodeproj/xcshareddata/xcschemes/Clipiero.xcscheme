@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FAC43DC51B35D8B100C06102"
-               BuildableName = "Clipy.app"
-               BlueprintName = "Clipy"
-               ReferencedContainer = "container:Clipy.xcodeproj">
+               BuildableName = "Clipiero.app"
+               BlueprintName = "Clipiero"
+               ReferencedContainer = "container:Clipiero.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "FAC43DD71B35D8B100C06102"
                BuildableName = "ClipyTests.xctest"
                BlueprintName = "ClipyTests"
-               ReferencedContainer = "container:Clipy.xcodeproj">
+               ReferencedContainer = "container:Clipiero.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "FAC43DD71B35D8B100C06102"
                BuildableName = "ClipyTests.xctest"
                BlueprintName = "ClipyTests"
-               ReferencedContainer = "container:Clipy.xcodeproj">
+               ReferencedContainer = "container:Clipiero.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAC43DC51B35D8B100C06102"
-            BuildableName = "Clipy.app"
-            BlueprintName = "Clipy"
-            ReferencedContainer = "container:Clipy.xcodeproj">
+            BuildableName = "Clipiero.app"
+            BlueprintName = "Clipiero"
+            ReferencedContainer = "container:Clipiero.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAC43DC51B35D8B100C06102"
-            BuildableName = "Clipy.app"
-            BlueprintName = "Clipy"
-            ReferencedContainer = "container:Clipy.xcodeproj">
+            BuildableName = "Clipiero.app"
+            BlueprintName = "Clipiero"
+            ReferencedContainer = "container:Clipiero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FAC43DC51B35D8B100C06102"
-            BuildableName = "Clipy.app"
-            BlueprintName = "Clipy"
-            ReferencedContainer = "container:Clipy.xcodeproj">
+            BuildableName = "Clipiero.app"
+            BlueprintName = "Clipiero"
+            ReferencedContainer = "container:Clipiero.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

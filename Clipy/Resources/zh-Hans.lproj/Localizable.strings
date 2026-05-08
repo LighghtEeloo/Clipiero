@@ -1,16 +1,16 @@
 //
 //  Localizable.strings
 //
-//  Clipy
+//  Clipiero
 //  GitHub: https://github.com/clipy
 //  HP: https://clipy-app.com
 //
 //  Created by Econa77 on 2015/06/21.
 //
-//  Copyright © 2015-2018 Clipy Project.
+//  Copyright © 2015-2018 Clipiero Project.
 //
 
-"Launch Clipy on system startup?" = "系统启动时打开 Clipy?";
+"Launch Clipiero on system startup?" = "系统启动时打开 Clipiero?";
 
 "You can change this setting in the Preferences if you want" = "如有需要可在偏好设置中修改本设置。";
 
@@ -28,7 +28,7 @@
 
 "Preferences" = "偏好设置...";
 
-"Quit Clipy" = "退出 Clipy";
+"Quit Clipiero" = "退出 Clipiero";
 
 "History" = "历史";
 

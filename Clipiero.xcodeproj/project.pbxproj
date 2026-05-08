@@ -104,7 +104,7 @@
 			containerPortal = FAC43DBE1B35D8B100C06102 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FAC43DC51B35D8B100C06102;
-			remoteInfo = Clipy;
+			remoteInfo = Clipiero;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -229,7 +229,7 @@
 		FAC0DCEE1DE3255E00309C49 /* NSImage+NSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+NSColor.swift"; sourceTree = "<group>"; };
 		FAC0DCF01DE576F300309C49 /* PasteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteService.swift; sourceTree = "<group>"; };
 		FAC13A0A1C00000000000001 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		FAC43DC61B35D8B100C06102 /* Clipy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAC43DC61B35D8B100C06102 /* Clipiero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipiero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC43DD81B35D8B100C06102 /* ClipyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC43DDD1B35D8B100C06102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC43E221B35DFC800C06102 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -524,7 +524,7 @@
 		FAC43DC71B35D8B100C06102 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAC43DC61B35D8B100C06102 /* Clipy.app */,
+				FAC43DC61B35D8B100C06102 /* Clipiero.app */,
 				FAC43DD81B35D8B100C06102 /* ClipyTests.xctest */,
 			);
 			name = Products;
@@ -566,9 +566,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAC43DC51B35D8B100C06102 /* Clipy */ = {
+		FAC43DC51B35D8B100C06102 /* Clipiero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAC43DE21B35D8B100C06102 /* Build configuration list for PBXNativeTarget "Clipy" */;
+			buildConfigurationList = FAC43DE21B35D8B100C06102 /* Build configuration list for PBXNativeTarget "Clipiero" */;
 			buildPhases = (
 				FAC43DC21B35D8B100C06102 /* Sources */,
 				FAC43DC31B35D8B100C06102 /* Frameworks */,
@@ -582,7 +582,7 @@
 			);
 			dependencies = (
 			);
-			name = Clipy;
+			name = Clipiero;
 			packageProductDependencies = (
 				C5A002000000000000000001 /* AEXML */,
 				C5A002000000000000000002 /* KeyHolder */,
@@ -596,8 +596,8 @@
 				C5A00200000000000000000A /* Sparkle */,
 				C5A00200000000000000000B /* SwiftHEXColors */,
 			);
-			productName = Clipy;
-			productReference = FAC43DC61B35D8B100C06102 /* Clipy.app */;
+			productName = Clipiero;
+			productReference = FAC43DC61B35D8B100C06102 /* Clipiero.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FAC43DD71B35D8B100C06102 /* ClipyTests */ = {
@@ -633,7 +633,7 @@
 				CLASSPREFIX = CPY;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0930;
-				ORGANIZATIONNAME = "Clipy Project";
+				ORGANIZATIONNAME = "Clipiero Project";
 				TargetAttributes = {
 					FAC43DC51B35D8B100C06102 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -649,7 +649,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FAC43DC11B35D8B100C06102 /* Build configuration list for PBXProject "Clipy" */;
+			buildConfigurationList = FAC43DC11B35D8B100C06102 /* Build configuration list for PBXProject "Clipiero" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -680,7 +680,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAC43DC51B35D8B100C06102 /* Clipy */,
+				FAC43DC51B35D8B100C06102 /* Clipiero */,
 				FAC43DD71B35D8B100C06102 /* ClipyTests */,
 			);
 		};
@@ -836,7 +836,7 @@
 /* Begin PBXTargetDependency section */
 		FAC43DDA1B35D8B100C06102 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAC43DC51B35D8B100C06102 /* Clipy */;
+			target = FAC43DC51B35D8B100C06102 /* Clipiero */;
 			targetProxy = FAC43DD91B35D8B100C06102 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1169,8 +1169,9 @@
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipy.debug";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipiero.debug";
+				PRODUCT_MODULE_NAME = Clipy;
+				PRODUCT_NAME = Clipiero;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1197,8 +1198,9 @@
 				INFOPLIST_FILE = "Clipy/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipy";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clipy-app.Clipiero";
+				PRODUCT_MODULE_NAME = Clipy;
+				PRODUCT_NAME = Clipiero;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1227,7 +1229,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipy.app/Contents/MacOS/Clipy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipiero.app/Contents/MacOS/Clipiero";
 			};
 			name = Debug;
 		};
@@ -1247,14 +1249,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipy.app/Contents/MacOS/Clipy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clipiero.app/Contents/MacOS/Clipiero";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAC43DC11B35D8B100C06102 /* Build configuration list for PBXProject "Clipy" */ = {
+		FAC43DC11B35D8B100C06102 /* Build configuration list for PBXProject "Clipiero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAC43DE01B35D8B100C06102 /* Debug */,
@@ -1263,7 +1265,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAC43DE21B35D8B100C06102 /* Build configuration list for PBXNativeTarget "Clipy" */ = {
+		FAC43DE21B35D8B100C06102 /* Build configuration list for PBXNativeTarget "Clipiero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAC43DE31B35D8B100C06102 /* Debug */,

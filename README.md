@@ -4,12 +4,14 @@
 
 <br>
 
-![CI](https://github.com/Clipy/Clipy/workflows/CI/badge.svg)
-[![Release version](https://img.shields.io/github/release/Clipy/Clipy.svg)](https://github.com/Clipy/Clipy/releases/latest)
+![CI](https://github.com/LighghtEeloo/Clipiero/actions/workflows/CI.yml/badge.svg?branch=develop)
+[![Release version](https://img.shields.io/github/release/LighghtEeloo/Clipiero.svg)](https://github.com/LighghtEeloo/Clipiero/releases/latest)
 [![OpenCollective](https://opencollective.com/clipy/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/clipy/sponsors/badge.svg)](#sponsors)
 
-Clipy is a Clipboard extension app for macOS.
+Clipiero is a Clipboard extension app for macOS.
+
+Clipiero is a forked and maintained version of [Clipy](https://github.com/Clipy/Clipy), focused on keeping the original clipboard workflow working on modern macOS.
 
 > The Clipiero project is about keeping up to the new macOS versions and fixing bugs.
 > Nothing about adding features or redesigning the app. See [MODERN.md](MODERN.md) for details.
@@ -18,7 +20,7 @@ Clipy is a Clipboard extension app for macOS.
 
 __Requirement__: Apple Silicon Mac running macOS 13 Ventura or higher
 
-__Distribution Site__ : <https://clipy-app.com>
+__Upstream Distribution Site__ : <https://clipy-app.com>
 
 <img src="http://clipy-app.com/img/screenshot1.png" width="400">
 
@@ -30,28 +32,30 @@ __Distribution Site__ : <https://clipy-app.com>
 
 ### How to Build
 0. Move to the project root directory
-1. Open `Clipy.xcodeproj` in Xcode.
+1. Open `Clipiero.xcodeproj` in Xcode.
 2. Let Xcode resolve Swift Package Manager dependencies.
 3. build.
 
 SwiftLint, SwiftGen, and BartyCrouch are optional local command-line tools. If they are not installed, Xcode will skip those build phases and use the checked-in generated sources.
 
 ### Contributing
-1. Fork it ( https://github.com/Clipy/Clipy/fork )
+1. Fork it ( https://github.com/LighghtEeloo/Clipiero/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
 ### Localization Contributors
-Clipy is looking for localization contributors.  
-If you can contribute, please see [CONTRIBUTING.md](https://github.com/Clipy/Clipy/blob/master/.github/CONTRIBUTING.md)
+Clipiero is looking for localization contributors.  
+If you can contribute, please see [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 
 ### Distribution
 If you distribute derived work, especially in the Mac App Store, I ask you to follow two rules:
 
 1. Don't use `Clipy` and `ClipMenu` as your product name.
 2. Follow the MIT license terms.
+
+This fork uses `Clipiero` as its product name to distinguish it from upstream Clipy.
 
 Thank you for your cooperation.
 
@@ -126,7 +130,7 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/clipy/sponsor/29/website" target="_blank"><img src="https://opencollective.com/clipy/sponsor/29/avatar.svg"></a>
 
 ### Licence
-Clipy is available under the MIT license. See the LICENSE file for more info.
+Clipiero is available under the MIT license. See the LICENSE file for more info.
 
 Icons are copyrighted by their respective authors.
 

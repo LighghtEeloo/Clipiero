@@ -17,15 +17,15 @@ platform :mac do
   lane :setup_release_id do
     # Update Project Team
     update_project_team(
-      path: "Clipy.xcodeproj",
+      path: "Clipiero.xcodeproj",
       teamid: "BBCHAJ584H"
     )
     # Update Provisioning Profile
     update_provisioning_profile_specifier(
-      xcodeproj: "Clipy.xcodeproj",
-      new_specifier: "ClipyDistribution",
+      xcodeproj: "Clipiero.xcodeproj",
+      new_specifier: "ClipieroDistribution",
       configuration: "Release",
-      target: "^Clipy$"
+      target: "^Clipiero$"
     )
   end
 
@@ -33,7 +33,7 @@ platform :mac do
 
   desc "Runs all the tests"
   lane :test do
-    scan_clipy
+    scan_clipiero
   end
   
   desc "Release"
@@ -44,10 +44,10 @@ platform :mac do
 
   ####################### PRIVATE LANES ########################
 
-  private_lane :scan_clipy do
+  private_lane :scan_clipiero do
     scan(
-      project: "Clipy.xcodeproj",
-      scheme: "Clipy",
+      project: "Clipiero.xcodeproj",
+      scheme: "Clipiero",
       verbose: true,
       clean: true
     )
