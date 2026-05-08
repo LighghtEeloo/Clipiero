@@ -1,9 +1,10 @@
+import Foundation
 import Quick
 import Nimble
 @testable import Clipy
 
 class DraggedDataSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("NSCoding") {
 

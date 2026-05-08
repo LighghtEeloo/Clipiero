@@ -27,7 +27,7 @@ private struct MockPasteboard: CPYPasteboardReading {
 }
 
 class ClipDataSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("Pasteboard type compatibility") {
 

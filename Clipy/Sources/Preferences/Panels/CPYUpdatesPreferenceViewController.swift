@@ -11,16 +11,25 @@
 //
 
 import Cocoa
+import Sparkle
 
 class CPYUpdatesPreferenceViewController: NSViewController {
 
     // MARK: - Properties
     @IBOutlet private weak var versionTextField: NSTextField!
+    @objc dynamic var updater: SPUUpdater {
+        return AppEnvironment.current.updateService.updater
+    }
 
     // MARK: - Initialize
     override func loadView() {
         super.loadView()
         versionTextField.stringValue = "v\(Bundle.main.appVersion ?? "")"
+    }
+
+    // MARK: - Actions
+    @IBAction func checkForUpdates(_ sender: Any?) {
+        AppEnvironment.current.updateService.checkForUpdates(sender)
     }
 
 }

@@ -11,7 +11,6 @@
 //
 
 import Cocoa
-import Sparkle
 import ServiceManagement
 import RxCocoa
 import RxSwift
@@ -189,10 +188,7 @@ extension AppDelegate: NSApplicationDelegate {
         }
 
         // Sparkle
-        let updater = SUUpdater.shared()
-        updater?.feedURL = Constants.Application.appcastURL
-        updater?.automaticallyChecksForUpdates = AppEnvironment.current.defaults.bool(forKey: Constants.Update.enableAutomaticCheck)
-        updater?.updateCheckInterval = TimeInterval(AppEnvironment.current.defaults.integer(forKey: Constants.Update.checkInterval))
+        AppEnvironment.current.updateService.start()
 
         screenshotObserver.delegate = self
         // Binding Events

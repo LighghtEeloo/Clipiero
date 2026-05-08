@@ -1,10 +1,11 @@
+import Foundation
 import Quick
 import Nimble
 import RealmSwift
 @testable import Clipy
 
 class SnippetSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         beforeEach {
             Realm.Configuration.defaultConfiguration.inMemoryIdentifier = NSUUID().uuidString

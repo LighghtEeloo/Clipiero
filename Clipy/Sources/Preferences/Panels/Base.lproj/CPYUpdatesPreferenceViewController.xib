@@ -27,7 +27,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="BFl-Kb-QuK" name="value" keyPath="lastUpdateCheckDate" id="RZL-GJ-KxE"/>
+                        <binding destination="-2" name="value" keyPath="updater.lastUpdateCheckDate" id="RZL-GJ-KxE"/>
                     </connections>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-ek-Gzp">
@@ -38,7 +38,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="checkForUpdates:" target="BFl-Kb-QuK" id="i13-OM-Vnw"/>
+                        <action selector="checkForUpdates:" target="-2" id="i13-OM-Vnw"/>
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evV-Ot-cOb">
@@ -49,7 +49,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <binding destination="Z9l-MW-Uqh" name="value" keyPath="values.kCPYEnableAutomaticCheckKey" id="tjj-eC-R6d"/>
+                        <binding destination="-2" name="value" keyPath="updater.automaticallyChecksForUpdates" id="tjj-eC-R6d"/>
                     </connections>
                 </button>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-pd-uFi">
@@ -67,8 +67,8 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
-                        <binding destination="Z9l-MW-Uqh" name="enabled" keyPath="values.kCPYEnableAutomaticCheckKey" id="OR6-xP-VwT"/>
-                        <binding destination="Z9l-MW-Uqh" name="selectedTag" keyPath="values.kCPYUpdateCheckIntervalKey" id="QmO-Rj-lIC"/>
+                        <binding destination="-2" name="enabled" keyPath="updater.automaticallyChecksForUpdates" id="OR6-xP-VwT"/>
+                        <binding destination="-2" name="selectedTag" keyPath="updater.updateCheckInterval" id="QmO-Rj-lIC"/>
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-aY-lUJ">
@@ -83,7 +83,5 @@
             </subviews>
             <point key="canvasLocation" x="629" y="589"/>
         </customView>
-        <userDefaultsController representsSharedInstance="YES" id="Z9l-MW-Uqh"/>
-        <customObject id="BFl-Kb-QuK" customClass="SUUpdater"/>
     </objects>
 </document>

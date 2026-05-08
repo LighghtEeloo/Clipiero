@@ -1,3 +1,4 @@
+import Foundation
 import Quick
 import Nimble
 import Magnet
@@ -7,7 +8,7 @@ import Carbon
 // swiftlint:disable function_body_length
 
 class HotKeyServiceSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("Migrate HotKey") {
 
