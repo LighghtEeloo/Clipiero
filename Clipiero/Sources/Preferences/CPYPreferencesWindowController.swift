@@ -54,7 +54,7 @@ final class CPYPreferencesWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.window?.collectionBehavior = .canJoinAllSpaces
-        self.window?.backgroundColor = NSColor(white: 0.99, alpha: 1)
+        self.window?.backgroundColor = .windowBackgroundColor
         self.window?.titlebarAppearsTransparent = true
         toolBarItemTapped(generalButton)
         generalButton.sendAction(on: .leftMouseDown)
@@ -105,13 +105,16 @@ private extension CPYPreferencesWindowController {
         updatesImageView.image = Asset.prefUpdate.image
         betaImageView.image = Asset.prefBeta.image
 
-        generalTextField.textColor = ColorName.tabTitle.color
-        menuTextField.textColor = ColorName.tabTitle.color
-        typeTextField.textColor = ColorName.tabTitle.color
-        excludeTextField.textColor = ColorName.tabTitle.color
-        shortcutsTextField.textColor = ColorName.tabTitle.color
-        updatesTextField.textColor = ColorName.tabTitle.color
-        betaTextField.textColor = ColorName.tabTitle.color
+        let textFields = [
+            generalTextField,
+            menuTextField,
+            typeTextField,
+            excludeTextField,
+            shortcutsTextField,
+            updatesTextField,
+            betaTextField
+        ]
+        textFields.forEach { $0?.textColor = .secondaryLabelColor }
     }
 
     func selectedTab(_ index: Int) {
@@ -120,27 +123,31 @@ private extension CPYPreferencesWindowController {
         switch index {
         case 0:
             generalImageView.image = Asset.prefGeneralOn.image
-            generalTextField.textColor = ColorName.clipiero.color
+            selectTab(generalTextField)
         case 1:
             menuImageView.image = Asset.prefMenuOn.image
-            menuTextField.textColor = ColorName.clipiero.color
+            selectTab(menuTextField)
         case 2:
             typeImageView.image = Asset.prefTypeOn.image
-            typeTextField.textColor = ColorName.clipiero.color
+            selectTab(typeTextField)
         case 3:
             excludeImageView.image = Asset.prefExcludedOn.image
-            excludeTextField.textColor = ColorName.clipiero.color
+            selectTab(excludeTextField)
         case 4:
             shortcutsImageView.image = Asset.prefShortcutOn.image
-            shortcutsTextField.textColor = ColorName.clipiero.color
+            selectTab(shortcutsTextField)
         case 5:
             updatesImageView.image = Asset.prefUpdateOn.image
-            updatesTextField.textColor = ColorName.clipiero.color
+            selectTab(updatesTextField)
         case 6:
             betaImageView.image = Asset.prefBetaOn.image
-            betaTextField.textColor = ColorName.clipiero.color
+            selectTab(betaTextField)
         default: break
         }
+    }
+
+    func selectTab(_ textField: NSTextField) {
+        textField.textColor = .controlAccentColor
     }
 
     func switchView(_ index: Int) {
@@ -157,7 +164,7 @@ private extension CPYPreferencesWindowController {
         newFrame.origin = frame.origin
         newFrame.origin.y += frame.height - newFrame.height - toolBar.frame.height
         newFrame.size.height += toolBar.frame.height
-        window?.setFrame(newFrame, display: true)
+        window?.setFrame(newFrame, display: false)
         window?.contentView?.addSubview(newView)
     }
 }

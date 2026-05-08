@@ -13,4 +13,5 @@ What to watch:
 - Login items: use `SMAppService.mainApp` and preserve existing preferences as the source of truth for whether launch-at-login is enabled.
 - Updates: keep Sparkle preferences visible unless Sparkle is intentionally removed or replaced.
 - Dark mode: prefer system colors where fixed colors break readability. Verify the main windows by eye.
+- UI modernization: keep changes native and incremental. Prefer system colors, template icons, Auto Layout, and existing AppKit controls over new product surfaces.
 - CI: add build and test checks so maintenance patches prove themselves before merge.
