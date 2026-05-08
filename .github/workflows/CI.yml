@@ -2,12 +2,9 @@ name: CI
 
 on: [push, pull_request]
 
-env:
-  DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
-
 jobs:
   test:
-    runs-on: macos-10.15
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v2
 
@@ -43,4 +40,3 @@ jobs:
 
     - name: Run fastlane
       run: bundle exec fastlane test
-    

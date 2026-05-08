@@ -1,4 +1,4 @@
-platform :osx, '10.10'
+platform :osx, '13.0'
 use_frameworks!
 
 target 'Clipy' do
@@ -10,7 +10,6 @@ target 'Clipy' do
   pod 'RealmSwift'
   pod 'RxCocoa'
   pod 'RxSwift'
-  pod 'LoginServiceKit', :git => 'https://github.com/Clipy/LoginServiceKit.git'
   pod 'KeyHolder'
   pod 'Magnet'
   pod 'RxScreeen'

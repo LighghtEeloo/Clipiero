@@ -12,9 +12,9 @@
 
 import Cocoa
 import Sparkle
+import ServiceManagement
 import RxCocoa
 import RxSwift
-import LoginServiceKit
 import Magnet
 import Screeen
 import RxScreeen
@@ -152,10 +152,18 @@ class AppDelegate: NSObject, NSMenuItemValidation {
     }
 
     private func toggleAddingToLoginItems(_ isEnable: Bool) {
-        let appPath = Bundle.main.bundlePath
-        LoginServiceKit.removeLoginItems(at: appPath)
-        guard isEnable else { return }
-        LoginServiceKit.addLoginItems(at: appPath)
+        let service = SMAppService.mainApp
+        do {
+            if isEnable {
+                guard service.status != .enabled && service.status != .requiresApproval else { return }
+                try service.register()
+            } else {
+                guard service.status == .enabled || service.status == .requiresApproval else { return }
+                try service.unregister()
+            }
+        } catch {
+            CPYUtilities.sendCustomLog(with: "Failed to update login item: \(error.localizedDescription)")
+        }
     }
 
     private func reflectLoginItemState() {
